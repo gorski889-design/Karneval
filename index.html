@@ -1370,6 +1370,12 @@
             document.getElementById('chill-tab').classList.add('visible');
         }
     }
+function toggleContacts() {
+    const list = document.getElementById('contactsList');
+    const btn = document.querySelector('.contacts-toggle');
+    list.classList.toggle('visible');
+    btn.classList.toggle('open');
+}
 
     window.addEventListener('offline', showFallbackMap);
     
