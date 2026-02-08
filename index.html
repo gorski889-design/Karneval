@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -49,457 +50,461 @@
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    /* ==================== SPLASH SCREEN ==================== */
-    .splash-screen {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: var(--bg-main); display: flex; flex-direction: column;
-      align-items: center; justify-content: center; z-index: 1000;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
-    .splash-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-    .splash-content { text-align: center; padding: 0 32px; max-width: 400px; }
-    .splash-title {
-      font-family: 'Cormorant Garamond', serif; font-size: 2.8rem;
-      font-weight: 500; letter-spacing: 0.15em; color: var(--text-primary); margin-bottom: 8px;
-    }
-    .splash-subtitle {
-      font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--text-muted); margin-bottom: 48px;
-    }
-    .splash-skyline {
-      width: 100%; max-width: 360px; height: 80px; margin: 0 auto 48px;
-      opacity: 0.6;
-      background: url('data:image/jpeg;base64,/9j/4QDKRXhpZgAATU0AKgAAAAgABgESAAMAAAABAAEAAAEaAAUAAAABAAAAVgEbAAUAAAABAAAAXgEoAAMAAAABAAIAAAITAAMAAAABAAEAAIdpAAQAAAABAAAAZgAAAAAAAABIAAAAAQAAAEgAAAABAAeQAAAHAAAABDAyMjGRAQAHAAAABAECAwCgAAAHAAAABDAxMDCgAQADAAAAAQABAACgAgAEAAAAAQAAAnCgAwAEAAAAAQAAAMKkBgADAAAAAQAAAAAAAAAAAAD/4gIoSUNDX1BST0ZJTEUAAQEAAAIYYXBwbAQAAABtbnRyUkdCIFhZWiAH5gABAAEAAAAAAABhY3NwQVBQTAAAAABBUFBMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA/AAAADBjcHJ0AAABLAAAAFB3dHB0AAABfAAAABRyWFlaAAABkAAAABRnWFlaAAABpAAAABRiWFlaAAABuAAAABRyVFJDAAABzAAAACBjaGFkAAAB7AAAACxiVFJDAAABzAAAACBnVFJDAAABzAAAACBtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABQAAAAcAEQAaQBzAHAAbABhAHkAIABQADNtbHVjAAAAAAAAAAEAAAAMZW5VUwAAADQAAAAcAEMAbwBwAHkAcgBpAGcAaAB0ACAAQQBwAHAAbABlACAASQBuAGMALgAsACAAMgAwADIAMlhZWiAAAAAAAAD21QABAAAAANMsWFlaIAAAAAAAAIPfAAA9v////7tYWVogAAAAAAAASr8AALE3AAAKuVhZWiAAAAAAAAAoOAAAEQsAAMi5cGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltzZjMyAAAAAAABDEIAAAXe///zJgAAB5MAAP2Q///7ov///aMAAAPcAADAbv/bAIQAAQEBAQEBAgEBAgMCAgIDBAMDAwMEBQQEBAQEBQYFBQUFBQUGBgYGBgYGBgcHBwcHBwgICAgICQkJCQkJCQkJCQEBAQECAgIEAgIECQYFBgkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJ/90ABAAn/8AAEQgAwgJwAwEiAAIRAQMRAf/EAaIAAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKCxAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6AQADAQEBAQEBAQEBAAAAAAAAAQIDBAugbwgjcgsraaibaqqebaqeaaeccwabagedbauhmqysqvetyxetiikbcbrckaghwqkjm1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A/v4ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/0P7+KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9H+/iiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/S/v4ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/0/7+KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9T+/iiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoorI125mstHury3OHihkZfYhSR7dqANeivJfgL4i1nxj8EPB3i/xHN9o1DVdD067uZdqrvmnto5JGwoAGWYnAAAI6AV61QAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB//V/v4ooooAKKKKACiiigAooooAKKKKACiiigAooooA/9k=') no-repeat center;
-      background-size: contain;
-      mix-blend-mode: multiply;
-    }
-    [data-theme="dark"] .splash-skyline { opacity: 0.4; filter: invert(1); mix-blend-mode: screen; }
-    .enter-btn {
-      display: inline-block; padding: 18px 48px; background: var(--accent);
-      border: none; border-radius: 50px; color: white;
-      font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500;
-      letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(184, 149, 108, 0.35); transition: all 0.3s ease;
-    }
-    .enter-btn:hover, .enter-btn:active { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(184, 149, 108, 0.45); }
-    .splash-hint { margin-top: 24px; font-size: 0.7rem; color: var(--text-muted); }
+```
+/* ==================== SPLASH SCREEN ==================== */
+.splash-screen {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--bg-main); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; z-index: 1000;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.splash-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.splash-content { text-align: center; padding: 0 32px; max-width: 400px; }
+.splash-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 2.8rem;
+  font-weight: 500; letter-spacing: 0.15em; color: var(--text-primary); margin-bottom: 8px;
+}
+.splash-subtitle {
+  font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 48px;
+}
+.splash-skyline {
+  width: 100%; max-width: 360px; height: 80px; margin: 0 auto 48px;
+  opacity: 0.15;
+}
+.splash-skyline svg { width: 100%; height: 100%; }
+[data-theme="dark"] .splash-skyline { opacity: 0.12; }
+[data-theme="dark"] .splash-skyline svg path { fill: #ccc; }
+.enter-btn {
+  display: inline-block; padding: 18px 48px; background: var(--accent);
+  border: none; border-radius: 50px; color: white;
+  font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(184, 149, 108, 0.35); transition: all 0.3s ease;
+}
+.enter-btn:hover, .enter-btn:active { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(184, 149, 108, 0.45); }
+.splash-hint { margin-top: 24px; font-size: 0.7rem; color: var(--text-muted); }
 
-    /* ==================== BURGER MENU ==================== */
-    .burger-btn {
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
-      padding: 10px 12px; cursor: pointer; display: flex; flex-direction: column;
-      gap: 4px; transition: all 0.2s ease; z-index: 101;
-    }
-    .burger-btn:active { transform: scale(0.95); }
-    .burger-btn span {
-      display: block; width: 18px; height: 2px; background: var(--text-primary);
-      border-radius: 2px; transition: all 0.3s ease;
-    }
-    .burger-btn.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
-    .burger-btn.open span:nth-child(2) { opacity: 0; }
-    .burger-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+/* ==================== BURGER MENU ==================== */
+.burger-btn {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 10px 12px; cursor: pointer; display: flex; flex-direction: column;
+  gap: 4px; transition: all 0.2s ease; z-index: 101;
+}
+.burger-btn:active { transform: scale(0.95); }
+.burger-btn span {
+  display: block; width: 18px; height: 2px; background: var(--text-primary);
+  border-radius: 2px; transition: all 0.3s ease;
+}
+.burger-btn.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+.burger-btn.open span:nth-child(2) { opacity: 0; }
+.burger-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
 
-    .nav-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5); z-index: 99; opacity: 0;
-      visibility: hidden; transition: all 0.3s ease;
-    }
-    .nav-overlay.visible { opacity: 1; visibility: visible; }
+.nav-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); z-index: 99; opacity: 0;
+  visibility: hidden; transition: all 0.3s ease;
+}
+.nav-overlay.visible { opacity: 1; visibility: visible; }
 
-    .nav-drawer {
-      position: fixed; top: 0; left: -280px; width: 280px; height: 100%;
-      background: var(--bg-main); z-index: 100; transition: left 0.3s ease;
-      padding: 80px 24px 24px; overflow-y: auto;
-      border-right: 1px solid var(--border);
-    }
-    .nav-drawer.open { left: 0; }
-    .nav-drawer h3 {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
-      font-weight: 500; letter-spacing: 0.1em; margin-bottom: 24px; color: var(--text-primary);
-    }
-    .nav-item {
-      display: flex; align-items: center; gap: 14px; padding: 16px 14px;
-      border-radius: 14px; cursor: pointer; transition: all 0.2s ease;
-      margin-bottom: 6px; color: var(--text-primary); text-decoration: none;
-    }
-    .nav-item:active, .nav-item.active { background: var(--bg-subtle); }
-    .nav-item .nav-icon { font-size: 1.3rem; width: 28px; text-align: center; }
-    .nav-item .nav-label { font-size: 0.9rem; font-weight: 500; }
-    .nav-item .nav-desc { font-size: 0.7rem; color: var(--text-muted); }
+.nav-drawer {
+  position: fixed; top: 0; left: -280px; width: 280px; height: 100%;
+  background: var(--bg-main); z-index: 100; transition: left 0.3s ease;
+  padding: 80px 24px 24px; overflow-y: auto;
+  border-right: 1px solid var(--border);
+}
+.nav-drawer.open { left: 0; }
+.nav-drawer h3 {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+  font-weight: 500; letter-spacing: 0.1em; margin-bottom: 24px; color: var(--text-primary);
+}
+.nav-item {
+  display: flex; align-items: center; gap: 14px; padding: 16px 14px;
+  border-radius: 14px; cursor: pointer; transition: all 0.2s ease;
+  margin-bottom: 6px; color: var(--text-primary); text-decoration: none;
+}
+.nav-item:active, .nav-item.active { background: var(--bg-subtle); }
+.nav-item .nav-icon { font-size: 1.3rem; width: 28px; text-align: center; }
+.nav-item .nav-label { font-size: 0.9rem; font-weight: 500; }
+.nav-item .nav-desc { font-size: 0.7rem; color: var(--text-muted); }
 
-    /* ==================== MAIN APP ==================== */
-    .main-app { display: none; min-height: 100%; }
-    .main-app.visible { display: block; animation: fadeIn 0.6s ease; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+/* ==================== MAIN APP ==================== */
+.main-app { display: none; min-height: 100%; }
+.main-app.visible { display: block; animation: fadeIn 0.6s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-    .bg-skyline {
-      position: fixed; bottom: 0; left: 0; width: 100%; height: 120px;
-      pointer-events: none; z-index: 0; opacity: var(--skyline-opacity);
-      transition: opacity 0.3s ease; mix-blend-mode: multiply;
-    }
-    [data-theme="dark"] .bg-skyline { mix-blend-mode: screen; filter: invert(1); }
+.bg-skyline {
+  position: fixed; bottom: 0; left: 0; width: 100%; height: 120px;
+  pointer-events: none; z-index: 0; opacity: var(--skyline-opacity);
+  transition: opacity 0.3s ease; mix-blend-mode: multiply;
+}
+[data-theme="dark"] .bg-skyline { mix-blend-mode: screen; filter: invert(1); }
 
-    .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 0 20px 40px; }
+.container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 0 20px 40px; }
 
-    /* Pages */
-    .page { display: none; }
-    .page.visible { display: block; animation: fadeIn 0.3s ease; }
+/* Pages */
+.page { display: none; }
+.page.visible { display: block; animation: fadeIn 0.3s ease; }
 
-    /* Header */
-    .header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 24px 0 20px;
-    }
-    .header-left { display: flex; align-items: center; gap: 14px; }
-    .header h1 {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.6rem;
-      font-weight: 500; letter-spacing: 0.1em; color: var(--text-primary);
-    }
-    .theme-toggle {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 50px; padding: 8px 12px; cursor: pointer;
-      font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; gap: 6px;
-    }
-    .theme-toggle:active { transform: scale(0.95); }
+/* Header */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 0 20px;
+}
+.header-left { display: flex; align-items: center; gap: 14px; }
+.header h1 {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.6rem;
+  font-weight: 500; letter-spacing: 0.1em; color: var(--text-primary);
+}
+.theme-toggle {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 50px; padding: 8px 12px; cursor: pointer;
+  font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; gap: 6px;
+}
+.theme-toggle:active { transform: scale(0.95); }
 
-    /* Weather bar */
-    .weather-bar {
-      display: flex; align-items: center; gap: 12px; padding: 14px 18px;
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 16px; margin-bottom: 16px; box-shadow: var(--shadow-sm);
-      transition: background 0.3s ease; overflow: hidden;
-    }
-    .weather-icon { font-size: 1.8rem; }
-    .weather-info { flex: 1; }
-    .weather-temp { font-size: 1.2rem; font-weight: 600; }
-    .weather-desc { font-size: 0.72rem; color: var(--text-muted); text-transform: capitalize; }
-    .weather-details { display: flex; gap: 12px; font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px; }
-    .weather-hourly {
-      display: flex; gap: 10px; overflow-x: auto; padding: 10px 0 4px;
-      scrollbar-width: none; -ms-overflow-style: none;
-    }
-    .weather-hourly::-webkit-scrollbar { display: none; }
-    .weather-hour {
-      display: flex; flex-direction: column; align-items: center; gap: 4px;
-      min-width: 52px; padding: 8px 6px; background: var(--bg-subtle);
-      border-radius: 12px; font-size: 0.68rem;
-    }
-    .weather-hour .time { color: var(--text-muted); }
-    .weather-hour .temp { font-weight: 600; font-size: 0.8rem; }
-    .weather-hour .icon { font-size: 1.1rem; }
-    .weather-loading { text-align: center; padding: 8px; font-size: 0.8rem; color: var(--text-muted); }
+/* Weather bar */
+.weather-bar {
+  display: flex; align-items: center; gap: 12px; padding: 14px 18px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 16px; margin-bottom: 16px; box-shadow: var(--shadow-sm);
+  transition: background 0.3s ease; overflow: hidden;
+}
+.weather-icon { font-size: 1.8rem; }
+.weather-info { flex: 1; }
+.weather-temp { font-size: 1.2rem; font-weight: 600; }
+.weather-desc { font-size: 0.72rem; color: var(--text-muted); text-transform: capitalize; }
+.weather-details { display: flex; gap: 12px; font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px; }
+.weather-hourly {
+  display: flex; gap: 10px; overflow-x: auto; padding: 10px 0 4px;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.weather-hourly::-webkit-scrollbar { display: none; }
+.weather-hour {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  min-width: 52px; padding: 8px 6px; background: var(--bg-subtle);
+  border-radius: 12px; font-size: 0.68rem;
+}
+.weather-hour .time { color: var(--text-muted); }
+.weather-hour .temp { font-weight: 600; font-size: 0.8rem; }
+.weather-hour .icon { font-size: 1.1rem; }
+.weather-loading { text-align: center; padding: 8px; font-size: 0.8rem; color: var(--text-muted); }
 
-    /* Main CTA */
-    .main-cta { margin-bottom: 20px; }
-    .home-btn {
-      display: block; width: 100%; padding: 26px 24px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      border: none; border-radius: 20px; color: white;
-      font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
-      font-weight: 500; letter-spacing: 0.08em; cursor: pointer;
-      text-decoration: none; text-align: center;
-      box-shadow: var(--shadow-md), 0 4px 16px rgba(184, 149, 108, 0.3);
-      transition: all 0.3s ease;
-    }
-    .home-btn:active { transform: scale(0.98); }
-    .home-btn .icon { display: block; font-size: 1.8rem; margin-bottom: 6px; }
-    .home-btn .sublabel {
-      display: block; font-family: 'Inter', sans-serif; font-size: 0.65rem;
-      letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.9; margin-top: 6px;
-    }
+/* Main CTA */
+.main-cta { margin-bottom: 20px; }
+.home-btn {
+  display: block; width: 100%; padding: 26px 24px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  border: none; border-radius: 20px; color: white;
+  font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+  font-weight: 500; letter-spacing: 0.08em; cursor: pointer;
+  text-decoration: none; text-align: center;
+  box-shadow: var(--shadow-md), 0 4px 16px rgba(184, 149, 108, 0.3);
+  transition: all 0.3s ease;
+}
+.home-btn:active { transform: scale(0.98); }
+.home-btn .icon { display: block; font-size: 1.8rem; margin-bottom: 6px; }
+.home-btn .sublabel {
+  display: block; font-family: 'Inter', sans-serif; font-size: 0.65rem;
+  letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.9; margin-top: 6px;
+}
 
-    .secondary-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
-    .sec-btn {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 6px; padding: 18px 16px; background: var(--bg-card);
-      border: 1px solid var(--border); border-radius: 16px; color: var(--text-primary);
-      text-decoration: none; font-size: 0.9rem; font-weight: 500;
-      box-shadow: var(--shadow-sm); transition: all 0.2s ease;
-    }
-    .sec-btn:active { transform: scale(0.97); background: var(--bg-subtle); }
-    .sec-btn .icon { font-size: 1.4rem; }
+.secondary-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.sec-btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; padding: 18px 16px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 16px; color: var(--text-primary);
+  text-decoration: none; font-size: 0.9rem; font-weight: 500;
+  box-shadow: var(--shadow-sm); transition: all 0.2s ease;
+}
+.sec-btn:active { transform: scale(0.97); background: var(--bg-subtle); }
+.sec-btn .icon { font-size: 1.4rem; }
 
-    /* Contacts */
-    .contacts-toggle {
-      width: 100%; padding: 14px 18px; margin-top: 12px;
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 14px; color: var(--text-primary); font-family: 'Inter', sans-serif;
-      font-size: 0.9rem; font-weight: 500; cursor: pointer;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      box-shadow: var(--shadow-sm); transition: all 0.2s ease;
-    }
-    .contacts-toggle:active { transform: scale(0.98); background: var(--bg-subtle); }
-    .contacts-toggle .arrow { transition: transform 0.3s ease; }
-    .contacts-toggle.open .arrow { transform: rotate(180deg); }
-    .contacts-list { display: none; flex-direction: column; gap: 8px; margin-top: 12px; }
-    .contacts-list.visible { display: flex; }
-    .contact-item {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 12px; text-decoration: none; color: var(--text-primary); transition: all 0.2s ease;
-    }
-    .contact-item:active { transform: scale(0.98); background: var(--bg-subtle); }
-    .contact-item .name { font-weight: 500; }
-    .contact-item .phone { font-size: 0.85rem; color: var(--text-secondary); }
-    .contact-item .call-icon { font-size: 1.2rem; }
+/* Contacts */
+.contacts-toggle {
+  width: 100%; padding: 14px 18px; margin-top: 12px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; color: var(--text-primary); font-family: 'Inter', sans-serif;
+  font-size: 0.9rem; font-weight: 500; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  box-shadow: var(--shadow-sm); transition: all 0.2s ease;
+}
+.contacts-toggle:active { transform: scale(0.98); background: var(--bg-subtle); }
+.contacts-toggle .arrow { transition: transform 0.3s ease; }
+.contacts-toggle.open .arrow { transform: rotate(180deg); }
+.contacts-list { display: none; flex-direction: column; gap: 8px; margin-top: 12px; }
+.contacts-list.visible { display: flex; }
+.contact-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; text-decoration: none; color: var(--text-primary); transition: all 0.2s ease;
+}
+.contact-item:active { transform: scale(0.98); background: var(--bg-subtle); }
+.contact-item .name { font-weight: 500; }
+.contact-item .phone { font-size: 0.85rem; color: var(--text-secondary); }
+.contact-item .call-icon { font-size: 1.2rem; }
 
-    /* Disclaimer & Info */
-    .disclaimer-box {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-left: 3px solid #e07070; border-radius: 12px;
-      padding: 18px; margin: 20px 0; box-shadow: var(--shadow-sm);
-    }
-    .disclaimer-box .title { font-weight: 600; font-size: 0.95rem; color: #d45a5a; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-    .disclaimer-box p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 8px; }
-    .disclaimer-box p:last-child { margin-bottom: 0; }
+/* Disclaimer & Info */
+.disclaimer-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-left: 3px solid #e07070; border-radius: 12px;
+  padding: 18px; margin: 20px 0; box-shadow: var(--shadow-sm);
+}
+.disclaimer-box .title { font-weight: 600; font-size: 0.95rem; color: #d45a5a; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.disclaimer-box p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 8px; }
+.disclaimer-box p:last-child { margin-bottom: 0; }
 
-    .info-box {
-      background: var(--bg-card); border-left: 3px solid var(--accent);
-      border-radius: 12px; padding: 16px 18px; margin: 20px 0;
-      box-shadow: var(--shadow-sm); transition: background 0.3s ease;
-    }
-    .info-box ul { list-style: none; }
-    .info-box li { font-size: 0.85rem; color: var(--text-secondary); padding: 6px 0; display: flex; align-items: flex-start; gap: 10px; }
-    .info-box li strong { color: var(--text-primary); }
-    .info-box .dot { width: 5px; height: 5px; min-width: 5px; background: var(--accent); border-radius: 50%; margin-top: 8px; }
+.info-box {
+  background: var(--bg-card); border-left: 3px solid var(--accent);
+  border-radius: 12px; padding: 16px 18px; margin: 20px 0;
+  box-shadow: var(--shadow-sm); transition: background 0.3s ease;
+}
+.info-box ul { list-style: none; }
+.info-box li { font-size: 0.85rem; color: var(--text-secondary); padding: 6px 0; display: flex; align-items: flex-start; gap: 10px; }
+.info-box li strong { color: var(--text-primary); }
+.info-box .dot { width: 5px; height: 5px; min-width: 5px; background: var(--accent); border-radius: 50%; margin-top: 8px; }
 
-    /* Section header */
-    .section-header { display: flex; align-items: center; gap: 12px; margin: 28px 0 14px; }
-    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--text-primary); white-space: nowrap; }
-    .section-header .line { flex: 1; height: 1px; background: var(--border); }
+/* Section header */
+.section-header { display: flex; align-items: center; gap: 12px; margin: 28px 0 14px; }
+.section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--text-primary); white-space: nowrap; }
+.section-header .line { flex: 1; height: 1px; background: var(--border); }
 
-    /* Map */
-    .map-container {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); transition: background 0.3s ease;
-    }
-    .map-header {
-      padding: 14px 18px; border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .map-header h3 { font-size: 0.9rem; font-weight: 500; }
-    .map-status { font-size: 0.7rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
-    .pulse { width: 7px; height: 7px; background: #4CAF50; border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-    #live-map, #explore-map { height: 300px; width: 100%; background: var(--bg-subtle); }
-    .map-btn {
-      display: block; width: calc(100% - 28px); margin: 14px;
-      padding: 14px 20px; background: var(--bg-subtle); border: 1px solid var(--border);
-      border-radius: 12px; color: var(--text-primary); font-family: 'Inter', sans-serif;
-      font-size: 0.85rem; font-weight: 500; cursor: pointer; text-align: center; transition: all 0.2s ease;
-    }
-    .map-btn:active { background: var(--border); }
-    .map-btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 14px 14px; }
-    .map-btn-sm {
-      padding: 12px 10px; background: var(--bg-subtle); border: 1px solid var(--border);
-      border-radius: 12px; color: var(--text-primary); font-family: 'Inter', sans-serif;
-      font-size: 0.8rem; font-weight: 500; cursor: pointer; text-align: center; transition: all 0.2s ease;
-    }
-    .map-btn-sm:active { background: var(--border); }
+/* Map */
+.map-container {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); transition: background 0.3s ease;
+}
+.map-header {
+  padding: 14px 18px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.map-header h3 { font-size: 0.9rem; font-weight: 500; }
+.map-status { font-size: 0.7rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+.pulse { width: 7px; height: 7px; background: #4CAF50; border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+#live-map { height: 320px; width: 100%; background: var(--bg-subtle); }
+.map-btn {
+  display: block; width: calc(100% - 28px); margin: 14px;
+  padding: 14px 20px; background: var(--bg-subtle); border: 1px solid var(--border);
+  border-radius: 12px; color: var(--text-primary); font-family: 'Inter', sans-serif;
+  font-size: 0.85rem; font-weight: 500; cursor: pointer; text-align: center; transition: all 0.2s ease;
+}
+.map-btn:active { background: var(--border); }
+.map-btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 14px 14px; }
+.map-btn-sm {
+  padding: 12px 10px; background: var(--bg-subtle); border: 1px solid var(--border);
+  border-radius: 12px; color: var(--text-primary); font-family: 'Inter', sans-serif;
+  font-size: 0.8rem; font-weight: 500; cursor: pointer; text-align: center; transition: all 0.2s ease;
+}
+.map-btn-sm:active { background: var(--border); }
 
-    /* Map legend */
-    .map-legend {
-      display: flex; gap: 14px; padding: 10px 18px; flex-wrap: wrap;
-      border-top: 1px solid var(--border);
-    }
-    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.7rem; color: var(--text-muted); }
-    .legend-dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid #fff; }
+/* Map legend */
+.map-legend {
+  display: flex; gap: 14px; padding: 10px 18px; flex-wrap: wrap;
+  border-top: 1px solid var(--border);
+}
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.7rem; color: var(--text-muted); }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid #fff; }
 
-    /* Fallback map */
-    .fallback-map { display: none; padding: 16px; }
-    .fallback-map.visible { display: block; }
-    .fallback-map svg { width: 100%; height: auto; border-radius: 12px; }
-    .fallback-notice { text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 12px; }
+/* Fallback map */
+.fallback-map { display: none; padding: 16px; }
+.fallback-map.visible { display: block; }
+.fallback-map svg { width: 100%; height: auto; border-radius: 12px; }
+.fallback-notice { text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 12px; }
 
-    /* Toilet/shop list */
-    .toilet-list, .shop-list { padding: 0 18px 18px; }
-    .toilet-item, .shop-item {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 12px 0; border-bottom: 1px solid var(--border);
-      text-decoration: none; color: var(--text-primary);
-    }
-    .toilet-item:last-child, .shop-item:last-child { border-bottom: none; }
-    .toilet-name, .shop-name { font-size: 0.85rem; font-weight: 500; }
-    .toilet-type, .shop-type { font-size: 0.7rem; color: var(--text-muted); }
-    .toilet-arrow, .shop-arrow { color: var(--text-muted); }
+/* Toilet/shop list */
+.toilet-list, .shop-list { padding: 0 18px 18px; }
+.toilet-item, .shop-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+  text-decoration: none; color: var(--text-primary);
+}
+.toilet-item:last-child, .shop-item:last-child { border-bottom: none; }
+.toilet-name, .shop-name { font-size: 0.85rem; font-weight: 500; }
+.toilet-type, .shop-type { font-size: 0.7rem; color: var(--text-muted); }
+.toilet-arrow, .shop-arrow { color: var(--text-muted); }
 
-    details { padding: 0 18px 14px; }
-    details summary { font-size: 0.8rem; color: var(--text-muted); cursor: pointer; padding: 8px 0; }
-    details summary:hover { color: var(--text-secondary); }
+details { padding: 0 18px 14px; }
+details summary { font-size: 0.8rem; color: var(--text-muted); cursor: pointer; padding: 8px 0; }
+details summary:hover { color: var(--text-secondary); }
 
-    /* Tabs */
-    .tabs {
-      display: flex; background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 4px; margin-bottom: 14px;
-      box-shadow: var(--shadow-sm); transition: background 0.3s ease;
-    }
-    .tab-btn {
-      flex: 1; padding: 12px 14px; background: transparent; border: none;
-      border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.8rem;
-      font-weight: 500; color: var(--text-muted); cursor: pointer; transition: all 0.2s ease;
-    }
-    .tab-btn.active { background: var(--accent); color: white; }
-    .tab-content { display: none; }
-    .tab-content.visible { display: block; animation: fadeIn 0.3s ease; }
+/* Tabs */
+.tabs {
+  display: flex; background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 4px; margin-bottom: 14px;
+  box-shadow: var(--shadow-sm); transition: background 0.3s ease;
+}
+.tab-btn {
+  flex: 1; padding: 12px 14px; background: transparent; border: none;
+  border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.8rem;
+  font-weight: 500; color: var(--text-muted); cursor: pointer; transition: all 0.2s ease;
+}
+.tab-btn.active { background: var(--accent); color: white; }
+.tab-content { display: none; }
+.tab-content.visible { display: block; animation: fadeIn 0.3s ease; }
 
-    .spots-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm); transition: background 0.3s ease;
-    }
-    .spot-item {
-      display: flex; align-items: center; padding: 16px 18px;
-      border-bottom: 1px solid var(--border); text-decoration: none;
-      color: var(--text-primary); transition: background 0.2s;
-    }
-    .spot-item:last-child { border-bottom: none; }
-    .spot-item:active { background: var(--bg-subtle); }
-    .spot-icon { font-size: 1.3rem; margin-right: 14px; width: 28px; text-align: center; }
-    .spot-content { flex: 1; }
-    .spot-name { font-weight: 500; font-size: 0.9rem; margin-bottom: 2px; }
-    .spot-item.featured .spot-name { color: var(--accent); }
-    .spot-comment { font-size: 0.72rem; color: var(--text-muted); }
-    .spot-arrow { color: var(--text-muted); font-size: 1.1rem; }
+.spots-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm); transition: background 0.3s ease;
+}
+.spot-item {
+  display: flex; align-items: center; padding: 16px 18px;
+  border-bottom: 1px solid var(--border); text-decoration: none;
+  color: var(--text-primary); transition: background 0.2s;
+}
+.spot-item:last-child { border-bottom: none; }
+.spot-item:active { background: var(--bg-subtle); }
+.spot-icon { font-size: 1.3rem; margin-right: 14px; width: 28px; text-align: center; }
+.spot-content { flex: 1; }
+.spot-name { font-weight: 500; font-size: 0.9rem; margin-bottom: 2px; }
+.spot-item.featured .spot-name { color: var(--accent); }
+.spot-comment { font-size: 0.72rem; color: var(--text-muted); }
+.spot-arrow { color: var(--text-muted); font-size: 1.1rem; }
 
-    /* Detail overlay */
-    .detail-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: var(--bg-main); z-index: 200; overflow-y: auto;
-      display: none;
-    }
-    .detail-overlay.visible { display: block; animation: slideUp 0.3s ease; }
-    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-    .detail-header {
-      display: flex; align-items: center; gap: 12px; padding: 20px;
-      border-bottom: 1px solid var(--border);
-    }
-    .detail-back {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 10px 14px; cursor: pointer;
-      font-size: 0.85rem; font-weight: 500; color: var(--text-primary); transition: all 0.2s ease;
-    }
-    .detail-back:active { transform: scale(0.95); }
-    .detail-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; }
-    .detail-body { padding: 20px; max-width: 440px; margin: 0 auto; }
-    .detail-image {
-      width: 100%; height: 200px; border-radius: 16px;
-      background: var(--bg-subtle); margin-bottom: 16px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3rem; overflow: hidden;
-    }
-    .detail-image img { width: 100%; height: 100%; object-fit: cover; }
-    .detail-info-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 16px; margin-bottom: 12px; box-shadow: var(--shadow-sm);
-    }
-    .detail-info-card h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
-    .detail-info-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.83rem; }
-    .detail-info-row .label { color: var(--text-muted); }
-    .detail-nav-btn {
-      display: block; width: 100%; padding: 16px; background: var(--accent);
-      border: none; border-radius: 14px; color: white;
-      font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500;
-      cursor: pointer; text-align: center; text-decoration: none; margin-top: 12px;
-    }
-    .detail-nav-btn:active { opacity: 0.9; }
+/* Detail overlay */
+.detail-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--bg-main); z-index: 200; overflow-y: auto;
+  display: none;
+}
+.detail-overlay.visible { display: block; animation: slideUp 0.3s ease; }
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.detail-header {
+  display: flex; align-items: center; gap: 12px; padding: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.detail-back {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 10px 14px; cursor: pointer;
+  font-size: 0.85rem; font-weight: 500; color: var(--text-primary); transition: all 0.2s ease;
+}
+.detail-back:active { transform: scale(0.95); }
+.detail-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; }
+.detail-body { padding: 20px; max-width: 440px; margin: 0 auto; }
+.detail-image {
+  width: 100%; height: 200px; border-radius: 16px;
+  background: var(--bg-subtle); margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; overflow: hidden;
+}
+.detail-image img { width: 100%; height: 100%; object-fit: cover; }
+.detail-info-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px; margin-bottom: 12px; box-shadow: var(--shadow-sm);
+}
+.detail-info-card h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
+.detail-info-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.83rem; }
+.detail-info-row .label { color: var(--text-muted); }
+.detail-nav-btn {
+  display: block; width: 100%; padding: 16px; background: var(--accent);
+  border: none; border-radius: 14px; color: white;
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500;
+  cursor: pointer; text-align: center; text-decoration: none; margin-top: 12px;
+}
+.detail-nav-btn:active { opacity: 0.9; }
 
-    /* Webcam link */
-    .webcam-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm);
-      margin: 14px 0; text-decoration: none; display: block; color: var(--text-primary);
-    }
-    .webcam-card:active { opacity: 0.9; }
-    .webcam-preview {
-      width: 100%; height: 140px; background: var(--bg-subtle);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.5rem; position: relative;
-    }
-    .webcam-preview .live-badge {
-      position: absolute; top: 10px; right: 10px; background: #e74c3c;
-      color: white; font-size: 0.6rem; font-weight: 600; padding: 4px 8px;
-      border-radius: 6px; letter-spacing: 0.05em;
-    }
-    .webcam-info { padding: 12px 16px; }
-    .webcam-info h4 { font-size: 0.85rem; font-weight: 500; }
-    .webcam-info p { font-size: 0.72rem; color: var(--text-muted); }
+/* Webcam link */
+.webcam-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm);
+  margin: 14px 0; text-decoration: none; display: block; color: var(--text-primary);
+}
+.webcam-card:active { opacity: 0.9; }
+.webcam-preview {
+  width: 100%; height: 140px; background: var(--bg-subtle);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem; position: relative;
+}
+.webcam-preview .live-badge {
+  position: absolute; top: 10px; right: 10px; background: #e74c3c;
+  color: white; font-size: 0.6rem; font-weight: 600; padding: 4px 8px;
+  border-radius: 6px; letter-spacing: 0.05em;
+}
+.webcam-info { padding: 12px 16px; }
+.webcam-info h4 { font-size: 0.85rem; font-weight: 500; }
+.webcam-info p { font-size: 0.72rem; color: var(--text-muted); }
 
-    /* Phrase card */
-    .phrase-card {
-      background: var(--bg-card); border-left: 3px solid var(--accent);
-      border-radius: 12px; padding: 18px 20px; margin: 24px 0;
-      box-shadow: var(--shadow-sm); transition: background 0.3s ease;
-    }
-    .phrase-card .label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
-    .phrase-card .german { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--text-primary); margin-bottom: 6px; }
-    .phrase-card .english { font-size: 0.72rem; color: var(--text-muted); }
+/* Phrase card */
+.phrase-card {
+  background: var(--bg-card); border-left: 3px solid var(--accent);
+  border-radius: 12px; padding: 18px 20px; margin: 24px 0;
+  box-shadow: var(--shadow-sm); transition: background 0.3s ease;
+}
+.phrase-card .label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.phrase-card .german { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--text-primary); margin-bottom: 6px; }
+.phrase-card .english { font-size: 0.72rem; color: var(--text-muted); }
 
-    /* Gym page */
-    .gym-hero {
-      width: 100%; height: 200px; border-radius: 20px;
-      background: linear-gradient(135deg, #2c3e50, #3498db);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px; overflow: hidden; position: relative;
-    }
-    .gym-hero-text {
-      color: white; text-align: center; z-index: 1;
-    }
-    .gym-hero-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 500; letter-spacing: 0.08em; }
-    .gym-hero-text p { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.8; margin-top: 4px; }
-    .gym-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 18px; margin-bottom: 14px; box-shadow: var(--shadow-sm);
-    }
-    .gym-card h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-    .gym-hours-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 0.83rem; border-bottom: 1px solid var(--border); }
-    .gym-hours-row:last-child { border-bottom: none; }
-    .gym-hours-row .day { font-weight: 500; }
-    .gym-hours-row .time { color: var(--text-secondary); }
-    .gym-rating { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+/* Gym page */
+.gym-hero {
+  width: 100%; height: 200px; border-radius: 20px;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px; overflow: hidden; position: relative;
+}
+.gym-hero-text {
+  color: white; text-align: center; z-index: 1;
+}
+.gym-hero-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 500; letter-spacing: 0.08em; }
+.gym-hero-text p { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.8; margin-top: 4px; }
+.gym-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 18px; margin-bottom: 14px; box-shadow: var(--shadow-sm);
+}
+.gym-card h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.gym-hours-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 0.83rem; border-bottom: 1px solid var(--border); }
+.gym-hours-row:last-child { border-bottom: none; }
+.gym-hours-row .day { font-weight: 500; }
+.gym-hours-row .time { color: var(--text-secondary); }
+.gym-rating { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--accent); font-weight: 600; }
 
-    /* Footer */
-    .footer { text-align: center; padding: 28px 0 16px; }
-    .footer-label { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
-    .footer-address { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-secondary); line-height: 1.7; }
-    .footer-phone { margin-top: 10px; }
-    .footer-phone a { color: var(--accent); text-decoration: none; font-size: 1.05rem; font-weight: 500; }
+/* Footer */
+.footer { text-align: center; padding: 28px 0 16px; }
+.footer-label { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.footer-address { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-secondary); line-height: 1.7; }
+.footer-phone { margin-top: 10px; }
+.footer-phone a { color: var(--accent); text-decoration: none; font-size: 1.05rem; font-weight: 500; }
 
-    /* Leaflet overrides */
-    .leaflet-popup-content-wrapper { border-radius: 12px; background: var(--bg-card); color: var(--text-primary); }
-    .leaflet-popup-content { margin: 12px 14px; font-family: 'Inter', sans-serif; font-size: 0.85rem; }
-    .leaflet-popup-tip { background: var(--bg-card); }
-    .popup-title { font-weight: 600; margin-bottom: 4px; }
-    .popup-type { color: var(--text-muted); font-size: 0.72rem; }
-    .popup-btn {
-      display: inline-block; margin-top: 8px; padding: 6px 12px;
-      background: var(--accent); color: white; text-decoration: none;
-      border-radius: 6px; font-size: 0.72rem; font-weight: 500;
-    }
+/* Leaflet overrides */
+.leaflet-popup-content-wrapper { border-radius: 12px; background: var(--bg-card); color: var(--text-primary); }
+.leaflet-popup-content { margin: 12px 14px; font-family: 'Inter', sans-serif; font-size: 0.85rem; }
+.leaflet-popup-tip { background: var(--bg-card); }
+.popup-title { font-weight: 600; margin-bottom: 4px; }
+.popup-type { color: var(--text-muted); font-size: 0.72rem; }
+.popup-btn {
+  display: inline-block; margin-top: 8px; padding: 6px 12px;
+  background: var(--accent); color: white; text-decoration: none;
+  border-radius: 6px; font-size: 0.72rem; font-weight: 500;
+}
+```
+
   </style>
 </head>
 <body>
 
 <!-- ==================== SPLASH SCREEN ==================== -->
+
 <div class="splash-screen" id="splash">
   <div class="splash-content">
     <h1 class="splash-title">DÜSSELDORF</h1>
     <p class="splash-subtitle">Carnival Survival Guide</p>
-    <div class="splash-skyline"></div>
+    <div class="splash-skyline">
+      <svg viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 120 L0 95 L20 95 L20 70 L25 70 L25 60 L30 60 L30 70 L35 70 L35 95 L55 95 L55 80 L60 80 L60 75 L65 75 L65 55 L70 50 L75 55 L75 75 L80 75 L80 80 L85 80 L85 95 L100 95 L100 65 L105 65 L105 50 L110 45 L115 50 L115 65 L120 65 L120 95 L140 95 L140 85 L145 85 L145 40 L148 20 L151 40 L155 40 L155 85 L160 85 L160 95 L180 95 L180 75 L185 75 L190 70 L195 65 L200 60 L205 55 L208 35 L210 15 L212 35 L215 55 L220 60 L225 65 L230 70 L235 75 L240 75 L240 95 L260 95 L260 80 L265 80 L265 72 L270 72 L270 60 L275 55 L280 52 L285 55 L285 60 L290 60 L290 72 L295 72 L295 80 L300 80 L300 95 L320 95 L320 70 L325 70 L325 55 L330 50 L335 45 L340 42 L345 45 L350 50 L355 55 L355 70 L360 70 L360 95 L380 95 L380 85 L385 85 L385 60 L390 55 L395 50 L400 48 L405 50 L410 55 L415 60 L415 85 L420 85 L420 95 L440 95 L440 75 L445 75 L450 68 L455 62 L458 25 L460 10 L462 25 L465 62 L470 68 L475 75 L480 75 L480 95 L500 95 L500 80 L505 80 L505 65 L510 60 L515 58 L520 60 L520 65 L525 65 L525 80 L530 80 L530 95 L550 95 L550 82 L555 82 L555 70 L560 65 L565 62 L570 65 L570 70 L575 70 L575 82 L580 82 L580 95 L600 95 L600 85 L605 85 L605 75 L610 72 L615 70 L620 72 L620 75 L625 75 L625 85 L630 85 L630 95 L660 95 L660 80 L665 80 L665 70 L670 65 L675 62 L680 65 L680 70 L685 70 L685 80 L690 80 L690 95 L720 95 L720 85 L730 85 L730 78 L740 78 L740 85 L750 85 L750 95 L800 95 L800 120 Z" fill="#1a1a1a"/>
+      </svg>
+    </div>
     <button class="enter-btn" onclick="enterApp()">Enter</button>
     <p class="splash-hint">Your emergency guide for carnival nights</p>
   </div>
 </div>
 
 <!-- ==================== NAV DRAWER ==================== -->
+
 <div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
 <div class="nav-drawer" id="navDrawer">
   <h3>DÜSSELDORF</h3>
   <div class="nav-item active" onclick="navigateTo('home')">
     <span class="nav-icon">🏠</span>
-    <div><div class="nav-label">Home</div><div class="nav-desc">Survival essentials</div></div>
-  </div>
-  <div class="nav-item" onclick="navigateTo('explore')">
-    <span class="nav-icon">🗺️</span>
-    <div><div class="nav-label">Explore Map</div><div class="nav-desc">Shops, kiosks & more</div></div>
+    <div><div class="nav-label">Home</div><div class="nav-desc">Map, places & essentials</div></div>
   </div>
   <div class="nav-item" onclick="navigateTo('gym')">
     <span class="nav-icon">💪</span>
@@ -512,314 +517,266 @@
 </div>
 
 <!-- ==================== MAIN APP ==================== -->
+
 <div class="main-app" id="mainApp">
   <div class="bg-skyline"></div>
   <div class="container">
 
-    <!-- Header -->
-    <header class="header">
-      <div class="header-left">
-        <button class="burger-btn" id="burgerBtn" onclick="toggleNav()">
-          <span></span><span></span><span></span>
-        </button>
-        <h1>DÜSSELDORF</h1>
-      </div>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-        <span id="themeIcon">🌙</span>
-      </button>
-    </header>
+```
+<!-- Header -->
+<header class="header">
+  <div class="header-left">
+    <button class="burger-btn" id="burgerBtn" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <h1>DÜSSELDORF</h1>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span id="themeIcon">🌙</span>
+  </button>
+</header>
 
-    <!-- Weather Bar -->
-    <div class="weather-bar" id="weatherBar">
-      <div class="weather-loading" id="weatherLoading">Loading weather...</div>
-      <div id="weatherContent" style="display:none; width:100%;">
-        <div style="display:flex; align-items:center; gap:12px;">
-          <span class="weather-icon" id="weatherIcon"></span>
-          <div class="weather-info">
-            <div class="weather-temp" id="weatherTemp"></div>
-            <div class="weather-desc" id="weatherDesc"></div>
-            <div class="weather-details">
-              <span id="weatherWind"></span>
-              <span id="weatherHumidity"></span>
-            </div>
-          </div>
-        </div>
-        <div class="weather-hourly" id="weatherHourly"></div>
-      </div>
-    </div>
-
-    <!-- ==================== HOME PAGE ==================== -->
-    <div class="page visible" id="page-home">
-
-      <!-- Main CTA -->
-      <section class="main-cta">
-        <a href="uber://?action=setPickup&pickup=my_location&dropoff[latitude]=51.22489&dropoff[longitude]=6.85965&dropoff[nickname]=Home" class="home-btn">
-          <span class="icon">🏠</span>
-          Take Me Home
-          <span class="sublabel">Opens Uber · One tap</span>
-        </a>
-        <div class="secondary-row">
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Pilgerweg+32,+40625+Düsseldorf" class="sec-btn">
-            <span class="icon">🧭</span> Navigate
-          </a>
-          <a href="tel:+491622714272" class="sec-btn">
-            <span class="icon">📞</span> Call Florian
-          </a>
-        </div>
-        <button class="contacts-toggle" onclick="toggleContacts()">
-          <span>👥</span> More Contacts <span class="arrow">▼</span>
-        </button>
-        <div class="contacts-list" id="contactsList">
-          <a href="tel:+4917662172140" class="contact-item"><div><div class="name">Sophie</div><div class="phone">+49 176 62172140</div></div><span class="call-icon">📞</span></a>
-          <a href="tel:+41791542190" class="contact-item"><div><div class="name">Ansu</div><div class="phone">+41 79 154 21 90</div></div><span class="call-icon">📞</span></a>
-          <a href="tel:+447770758915" class="contact-item"><div><div class="name">Ben</div><div class="phone">+44 7770 758915</div></div><span class="call-icon">📞</span></a>
-          <a href="tel:+447483851859" class="contact-item"><div><div class="name">Joe</div><div class="phone">+44 7483 851859</div></div><span class="call-icon">📞</span></a>
-          <a href="tel:+447436065758" class="contact-item"><div><div class="name">James</div><div class="phone">+44 7436 065758</div></div><span class="call-icon">📞</span></a>
-        </div>
-      </section>
-
-      <!-- Safety Disclaimer -->
-      <div class="disclaimer-box">
-        <div class="title">⚠️ Stay Safe — No Trouble</div>
-        <p><strong>🚨</strong> Please avoid any conflict, no matter what happens. Walk away from trouble. The police are strict and will remove you immediately — don't risk it.</p>
-      </div>
-
-      <!-- Rules -->
-      <div class="info-box">
-        <ul>
-          <li><span class="dot"></span><strong>No glass</strong> in Altstadt — cans only!</li>
-          <li><span class="dot"></span>Public peeing = <strong>€150 fine</strong></li>
-          <li><span class="dot"></span>Büdchen cheaper than bars</li>
-        </ul>
-      </div>
-
-      <!-- Toilet Section -->
-      <div class="section-header">
-        <h2>🚽 Find a Toilet</h2>
-        <span class="line"></span>
-      </div>
-      <div class="map-container">
-        <div class="map-header">
-          <h3>📍 Nearby Toilets</h3>
-          <span class="map-status" id="mapStatus"><span class="pulse"></span> Live</span>
-        </div>
-        <div id="live-map"></div>
-        <div class="fallback-map" id="fallbackMap">
-          <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="320" fill="var(--bg-subtle)"/>
-            <path d="M0 280 Q100 260 200 270 Q300 280 400 260 L400 320 L0 320 Z" fill="#c5d5e4" opacity="0.5"/>
-            <text x="350" y="300" fill="var(--text-muted)" font-size="10" font-family="Inter">Rhein</text>
-            <path d="M50 50 L350 50" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
-            <path d="M80 50 L80 250" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
-            <path d="M200 30 L200 260" stroke="var(--border)" stroke-width="10" stroke-linecap="round"/>
-            <path d="M320 50 L320 250" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
-            <path d="M50 150 L350 150" stroke="var(--border)" stroke-width="8" stroke-linecap="round"/>
-            <path d="M50 250 L350 250" stroke="var(--border)" stroke-width="10" stroke-linecap="round"/>
-            <text x="200" y="145" fill="var(--text-muted)" font-size="8" font-family="Inter" text-anchor="middle">Bolkerstraße</text>
-            <text x="200" y="245" fill="var(--text-muted)" font-size="8" font-family="Inter" text-anchor="middle">Rheinufer</text>
-            <circle cx="200" cy="210" r="12" fill="var(--accent)"/><text x="200" y="215" fill="white" font-size="12" font-family="Inter" text-anchor="middle">🚽</text>
-            <text x="200" y="190" fill="var(--text-primary)" font-size="8" font-family="Inter" font-weight="600" text-anchor="middle">Burgplatz</text>
-            <circle cx="305" cy="145" r="12" fill="var(--accent)"/><text x="305" y="150" fill="white" font-size="12" font-family="Inter" text-anchor="middle">🚽</text>
-            <text x="305" y="165" fill="var(--text-primary)" font-size="8" font-family="Inter" font-weight="600" text-anchor="middle">Marktplatz</text>
-            <circle cx="80" cy="100" r="12" fill="var(--accent)"/><text x="80" y="105" fill="white" font-size="12" font-family="Inter" text-anchor="middle">🚽</text>
-            <text x="80" y="85" fill="var(--text-primary)" font-size="8" font-family="Inter" font-weight="600" text-anchor="middle">Ratinger M.</text>
-          </svg>
-          <p class="fallback-notice">📴 Offline mode — use this map to find toilets</p>
-        </div>
-        <button class="map-btn" onclick="navigateToNearest()">Navigate to Nearest Toilet</button>
-        <details>
-          <summary>Show all toilets</summary>
-          <div class="toilet-list">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=51.22743,6.77196&travelmode=walking" class="toilet-item"><div><div class="toilet-name">Burgplatz (North)</div><div class="toilet-type">Pissoirs + WC</div></div><span class="toilet-arrow">→</span></a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=51.22647,6.77210&travelmode=walking" class="toilet-item"><div><div class="toilet-name">Burgplatz (South)</div><div class="toilet-type">Pissoirs + WC</div></div><span class="toilet-arrow">→</span></a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=51.22834,6.77129&travelmode=walking" class="toilet-item"><div><div class="toilet-name">St. Lambertus / Stiftsplatz</div><div class="toilet-type">WC Container</div></div><span class="toilet-arrow">→</span></a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=51.22913,6.77303&travelmode=walking" class="toilet-item"><div><div class="toilet-name">Ritterstraße</div><div class="toilet-type">Pissoirs</div></div><span class="toilet-arrow">→</span></a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=51.22559,6.77132&travelmode=walking" class="toilet-item"><div><div class="toilet-name">Marktplatz</div><div class="toilet-type">WC Container</div></div><span class="toilet-arrow">→</span></a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=51.22372,6.77305&travelmode=walking" class="toilet-item"><div><div class="toilet-name">Carlsplatz</div><div class="toilet-type">WC</div></div><span class="toilet-arrow">→</span></a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=51.22537,6.77676&travelmode=walking" class="toilet-item"><div><div class="toilet-name">Heinrich-Heine-Allee</div><div class="toilet-type">WC · €0.50 (paid)</div></div><span class="toilet-arrow">→</span></a>
-          </div>
-        </details>
-      </div>
-
-      <!-- Places Section -->
-      <div class="section-header">
-        <h2>📍 Places</h2>
-        <span class="line"></span>
-      </div>
-      <div class="tabs">
-        <button class="tab-btn active" onclick="showTab('party')">🎉 Party</button>
-        <button class="tab-btn" onclick="showTab('chill')">😌 Chill</button>
-      </div>
-      <div class="tab-content visible" id="party-tab">
-        <div class="spots-card">
-          <a href="javascript:void(0)" onclick="showDetail('burgplatz')" class="spot-item featured"><span class="spot-icon">🎪</span><div class="spot-content"><div class="spot-name">Burgplatz</div><div class="spot-comment">Main stage · Big tent · The heart of it all</div></div><span class="spot-arrow">→</span></a>
-          <a href="javascript:void(0)" onclick="showDetail('uerige')" class="spot-item featured"><span class="spot-icon">🍺</span><div class="spot-content"><div class="spot-name">Uerige · Marktplatz</div><div class="spot-comment">Legendary brewery · Real Düsseldorf</div></div><span class="spot-arrow">→</span></a>
-          <a href="javascript:void(0)" onclick="showDetail('stursula')" class="spot-item featured"><span class="spot-icon">⛪</span><div class="spot-content"><div class="spot-name">St. Ursula · Ritterstraße</div><div class="spot-comment">Local favorite · Less tourists</div></div><span class="spot-arrow">→</span></a>
-          <a href="javascript:void(0)" onclick="showDetail('ratinger')" class="spot-item"><span class="spot-icon">🎸</span><div class="spot-content"><div class="spot-name">Ratinger Straße</div><div class="spot-comment">Locals' street · Alternative bars</div></div><span class="spot-arrow">→</span></a>
-          <a href="javascript:void(0)" onclick="showDetail('bolker')" class="spot-item"><span class="spot-icon">🌀</span><div class="spot-content"><div class="spot-name">Bolkerstraße</div><div class="spot-comment">Pure chaos · You will lose someone</div></div><span class="spot-arrow">→</span></a>
-          <a href="javascript:void(0)" onclick="showDetail('kabuffke')" class="spot-item"><span class="spot-icon">🥃</span><div class="spot-content"><div class="spot-name">Et Kabüffke</div><div class="spot-comment">Tiny legend since 1858 · Killepitsch!</div></div><span class="spot-arrow">→</span></a>
-        </div>
-      </div>
-      <div class="tab-content" id="chill-tab">
-        <div class="spots-card">
-          <a href="javascript:void(0)" onclick="showDetail('hofgarten')" class="spot-item"><span class="spot-icon">🌿</span><div class="spot-content"><div class="spot-name">Hofgarten</div><div class="spot-comment">Park with benches · Quiet escape</div></div><span class="spot-arrow">→</span></a>
-          <a href="javascript:void(0)" onclick="showDetail('rheinufer')" class="spot-item"><span class="spot-icon">🌊</span><div class="spot-content"><div class="spot-name">Rhein Riverbank</div><div class="spot-comment">Fresh air · Nice view · Clear your head</div></div><span class="spot-arrow">→</span></a>
-          <a href="javascript:void(0)" onclick="showDetail('matteo')" class="spot-item"><span class="spot-icon">🍕</span><div class="spot-content"><div class="spot-name">Pizzeria Matteo</div><div class="spot-comment">Open until 4-6am · Late night savior</div></div><span class="spot-arrow">→</span></a>
-        </div>
-      </div>
-
-      <!-- German Phrase -->
-      <div class="phrase-card">
-        <p class="label">📋 Show this if you're lost</p>
-        <p class="german">"Ich bin verloren. Können Sie mir helfen, diese Adresse zu finden?"</p>
-        <p class="english">I'm lost. Can you help me find this address?</p>
-      </div>
-
-      <!-- Footer -->
-      <footer class="footer">
-        <p class="footer-label">Florian's Place</p>
-        <p class="footer-address">Pilgerweg 32<br>40625 Düsseldorf</p>
-        <p class="footer-phone"><a href="tel:+491622714272">+49 162 271 4272</a></p>
-      </footer>
-    </div>
-
-    <!-- ==================== EXPLORE MAP PAGE ==================== -->
-    <div class="page" id="page-explore">
-      <div class="section-header" style="margin-top:0;">
-        <h2>🗺️ Explore Düsseldorf</h2>
-        <span class="line"></span>
-      </div>
-
-      <div class="map-container">
-        <div class="map-header">
-          <h3>Shops & Kiosks</h3>
-          <span class="map-status"><span class="pulse"></span> Live</span>
-        </div>
-        <div id="explore-map"></div>
-        <div class="map-legend">
-          <div class="legend-item"><div class="legend-dot" style="background:var(--shop-color);"></div> Supermarket</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--kiosk-color);"></div> Kiosk / Büdchen</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--accent);"></div> Toilet</div>
-        </div>
-        <div class="map-btn-row">
-          <button class="map-btn-sm" onclick="navigateToNearestShop('supermarket')">🛒 Nearest Supermarket</button>
-          <button class="map-btn-sm" onclick="navigateToNearestShop('kiosk')">🏪 Nearest Kiosk</button>
-        </div>
-        <details>
-          <summary>Show all shops</summary>
-          <div class="shop-list" id="shopList"></div>
-        </details>
-      </div>
-
-      <!-- Area Tabs -->
-      <div class="tabs" style="margin-top:20px;">
-        <button class="tab-btn active" onclick="showAreaTab('altstadt')">Altstadt</button>
-        <button class="tab-btn" onclick="showAreaTab('home')">Home Area</button>
-      </div>
-      <div class="tab-content visible" id="altstadt-area">
-        <div class="spots-card">
-          <div class="spot-item"><span class="spot-icon">🛒</span><div class="spot-content"><div class="spot-name">REWE</div><div class="spot-comment">Near Carlsplatz · Cheapest option</div></div></div>
-          <div class="spot-item"><span class="spot-icon">🛒</span><div class="spot-content"><div class="spot-name">ALDI</div><div class="spot-comment">South of Carlsplatz</div></div></div>
-          <div class="spot-item"><span class="spot-icon">🛒</span><div class="spot-content"><div class="spot-name">ALDI (Galeria)</div><div class="spot-comment">Inside Galeria building</div></div></div>
-          <div class="spot-item"><span class="spot-icon">🏪</span><div class="spot-content"><div class="spot-name">VIP Kiosk</div><div class="spot-comment">Near Ratinger Straße</div></div></div>
-          <div class="spot-item"><span class="spot-icon">🏪</span><div class="spot-content"><div class="spot-name">Rhein Kiosk</div><div class="spot-comment">By the Rhine · Burgplatz</div></div></div>
-          <div class="spot-item"><span class="spot-icon">🏪</span><div class="spot-content"><div class="spot-name">Bolker Shop</div><div class="spot-comment">Bolkerstraße 54 · Snacks & drinks</div></div></div>
-          <div class="spot-item"><span class="spot-icon">🏪</span><div class="spot-content"><div class="spot-name">Bier Paradies</div><div class="spot-comment">Neubrückstraße 14 · Beer heaven</div></div></div>
-          <div class="spot-item"><span class="spot-icon">🏪</span><div class="spot-content"><div class="spot-name">Fortuna Büdchen</div><div class="spot-comment">Cult kiosk · Fortuna fans HQ</div></div></div>
-        </div>
-      </div>
-      <div class="tab-content" id="home-area">
-        <div class="spots-card">
-          <div class="spot-item"><span class="spot-icon">🛒</span><div class="spot-content"><div class="spot-name">Netto</div><div class="spot-comment">Gerresheim · Closest to Pilgerweg 32</div></div></div>
+<!-- Weather Bar -->
+<div class="weather-bar" id="weatherBar">
+  <div class="weather-loading" id="weatherLoading">Loading weather...</div>
+  <div id="weatherContent" style="display:none; width:100%;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span class="weather-icon" id="weatherIcon"></span>
+      <div class="weather-info">
+        <div class="weather-temp" id="weatherTemp"></div>
+        <div class="weather-desc" id="weatherDesc"></div>
+        <div class="weather-details">
+          <span id="weatherWind"></span>
+          <span id="weatherHumidity"></span>
         </div>
       </div>
     </div>
+    <div class="weather-hourly" id="weatherHourly"></div>
+  </div>
+</div>
 
-    <!-- ==================== GYM PAGE ==================== -->
-    <div class="page" id="page-gym">
-      <div class="gym-hero">
-        <div class="gym-hero-text">
-          <h2>FIT COSMO</h2>
-          <p>Düsseldorf Gerresheim</p>
-        </div>
-      </div>
+<!-- ==================== HOME PAGE ==================== -->
+<div class="page visible" id="page-home">
 
-      <div class="gym-rating" style="margin-bottom:16px;">
-        ⭐ 4.6 <span style="color:var(--text-muted); font-weight:400; font-size:0.8rem;">· 176 reviews</span>
-      </div>
-
-      <div class="gym-card">
-        <h3>📍 Address</h3>
-        <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:12px;">
-          Diepenstraße 83, 40625 Düsseldorf<br>
-          <span style="font-size:0.75rem; color:var(--text-muted);">Located in COSMO SPORTS</span>
-        </p>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Diepenstraße+83,+40625+Düsseldorf" class="detail-nav-btn" target="_blank">🧭 Navigate to Gym</a>
-      </div>
-
-      <div class="gym-card">
-        <h3>🕐 Gym Hours</h3>
-        <div class="gym-hours-row"><span class="day">Mon – Fri</span><span class="time">07:00 – 22:30</span></div>
-        <div class="gym-hours-row"><span class="day">Sat, Sun & Holidays</span><span class="time">08:00 – 21:00</span></div>
-      </div>
-
-      <div class="gym-card">
-        <h3>🧖 Sauna Hours</h3>
-        <div class="gym-hours-row"><span class="day">Mon – Thu</span><span class="time">09:00 – 14:00</span></div>
-        <div class="gym-hours-row"><span class="day">Mon, Wed – Fri</span><span class="time">15:00 – 21:30</span></div>
-        <div class="gym-hours-row"><span class="day">Sat – Sun</span><span class="time">10:00 – 20:00</span></div>
-      </div>
-
-      <div class="info-box">
-        <ul>
-          <li><span class="dot"></span>Sauna included in membership</li>
-          <li><span class="dot"></span>Part of COSMO SPORTS GmbH</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- ==================== WEBCAM PAGE ==================== -->
-    <div class="page" id="page-webcam">
-      <div class="section-header" style="margin-top:0;">
-        <h2>📹 Live Webcams</h2>
-        <span class="line"></span>
-      </div>
-
-      <a href="https://livespotting.tv/deutschland/duesseldorf/fxmwsxp6" target="_blank" class="webcam-card">
-        <div class="webcam-preview">
-          🏰
-          <span class="live-badge">● LIVE</span>
-        </div>
-        <div class="webcam-info">
-          <h4>Burgplatz · Schlossturm</h4>
-          <p>Live view of Burgplatz, St. Lambertus & Oberkasseler Brücke — tap to watch</p>
-        </div>
+  <!-- Main CTA -->
+  <section class="main-cta">
+    <a href="uber://?action=setPickup&pickup=my_location&dropoff[latitude]=51.22489&dropoff[longitude]=6.85965&dropoff[nickname]=Home" class="home-btn">
+      <span class="icon">🚗</span>
+      Take Me Home (Uber)
+      <span class="sublabel">Opens Uber · One tap</span>
+    </a>
+    <div class="secondary-row">
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Pilgerweg+32,+40625+Düsseldorf" class="sec-btn">
+        <span class="icon">📍</span> Google Maps
       </a>
-
-      <a href="https://www.wetter.com/hd-live-webcams/deutschland/duesseldorf-burgplatz-am-rheinufer/663109f6de7ede301c043375/" target="_blank" class="webcam-card">
-        <div class="webcam-preview">
-          🌊
-          <span class="live-badge">● LIVE</span>
-        </div>
-        <div class="webcam-info">
-          <h4>Rheinufer · wetter.com</h4>
-          <p>HD Live Webcam at the Rhine waterfront — tap to watch</p>
-        </div>
+      <a href="tel:+491622714272" class="sec-btn">
+        <span class="icon">📞</span> Call Florian
       </a>
-
-      <div class="info-box">
-        <ul>
-          <li><span class="dot"></span>Check crowd levels before heading out</li>
-          <li><span class="dot"></span>See the weather live at Burgplatz</li>
-          <li><span class="dot"></span>Webcams run 24/7</li>
-        </ul>
-      </div>
     </div>
+    <div class="secondary-row" style="margin-top:8px;">
+      <a href="sms:?body=Hey%2C%20here%20is%20my%20location%3A%20" onclick="shareLocation(event)" class="sec-btn" id="shareLocBtn">
+        <span class="icon">📡</span> Share My Location
+      </a>
+      <a href="https://wa.me/?text=Hey%2C%20here%20is%20my%20location%3A%20" onclick="shareLocationWA(event)" class="sec-btn">
+        <span class="icon">💬</span> Share via WhatsApp
+      </a>
+    </div>
+    <button class="contacts-toggle" onclick="toggleContacts()">
+      <span>👥</span> More Contacts <span class="arrow">▼</span>
+    </button>
+    <div class="contacts-list" id="contactsList">
+      <a href="tel:+4917662172140" class="contact-item"><div><div class="name">Sophie</div><div class="phone">+49 176 62172140</div></div><span class="call-icon">📞</span></a>
+      <a href="tel:+41791542190" class="contact-item"><div><div class="name">Ansu</div><div class="phone">+41 79 154 21 90</div></div><span class="call-icon">📞</span></a>
+      <a href="tel:+447770758915" class="contact-item"><div><div class="name">Ben</div><div class="phone">+44 7770 758915</div></div><span class="call-icon">📞</span></a>
+      <a href="tel:+447483851859" class="contact-item"><div><div class="name">Joe</div><div class="phone">+44 7483 851859</div></div><span class="call-icon">📞</span></a>
+      <a href="tel:+447436065758" class="contact-item"><div><div class="name">James</div><div class="phone">+44 7436 065758</div></div><span class="call-icon">📞</span></a>
+    </div>
+  </section>
+
+  <!-- Explore Map Section -->
+  <div class="section-header">
+    <h2>🗺️ Explore Map</h2>
+    <span class="line"></span>
+  </div>
+
+  <!-- Filter tabs for map -->
+  <div class="tabs" id="mapFilterTabs">
+    <button class="tab-btn active" onclick="filterMap('all')">All</button>
+    <button class="tab-btn" onclick="filterMap('toilet')">🚽 Toilets</button>
+    <button class="tab-btn" onclick="filterMap('supermarket')">🛒 Shops</button>
+    <button class="tab-btn" onclick="filterMap('kiosk')">🏪 Kiosks</button>
+  </div>
+
+  <div class="map-container">
+    <div class="map-header">
+      <h3>📍 Nearby</h3>
+      <span class="map-status" id="mapStatus"><span class="pulse"></span> Live</span>
+    </div>
+    <div id="live-map"></div>
+    <div class="fallback-map" id="fallbackMap">
+      <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="320" fill="var(--bg-subtle)"/>
+        <path d="M0 280 Q100 260 200 270 Q300 280 400 260 L400 320 L0 320 Z" fill="#c5d5e4" opacity="0.5"/>
+        <text x="350" y="300" fill="var(--text-muted)" font-size="10" font-family="Inter">Rhein</text>
+        <circle cx="200" cy="210" r="12" fill="var(--accent)"/>
+        <text x="200" y="190" fill="var(--text-primary)" font-size="8" font-family="Inter" font-weight="600" text-anchor="middle">Burgplatz</text>
+      </svg>
+      <p class="fallback-notice">📴 Offline mode</p>
+    </div>
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--accent);"></div> Toilet</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--shop-color);"></div> Supermarket</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--kiosk-color);"></div> Kiosk</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:10px 14px 14px;">
+      <button class="map-btn-sm" style="font-size:0.9rem; padding:14px 8px;" onclick="navigateToNearest()">🚽<br><b>Nearest Toilet</b></button>
+      <button class="map-btn-sm" style="font-size:0.9rem; padding:14px 8px;" onclick="navigateToNearestShop('supermarket')">🛒<br><b>Nearest Shop</b></button>
+      <button class="map-btn-sm" style="font-size:0.9rem; padding:14px 8px;" onclick="navigateToNearestShop('kiosk')">🏪<br><b>Nearest Kiosk</b></button>
+    </div>
+  </div>
+
+  <!-- Safety Info -->
+  <div class="disclaimer-box">
+    <div class="title">⚠️ Stay Safe — No Trouble</div>
+    <p><strong>🚨</strong> Please avoid any conflict, no matter what happens. Walk away from trouble. The police are strict and will remove you immediately — don't risk it.</p>
+  </div>
+  <div class="info-box">
+    <ul>
+      <li><span class="dot"></span><strong>No glass</strong> in Altstadt — cans only!</li>
+      <li><span class="dot"></span>Public peeing = <strong>€150 fine</strong></li>
+      <li><span class="dot"></span>Büdchen (kiosk) cheaper than bars</li>
+    </ul>
+  </div>
+
+  <!-- Places Section -->
+  <div class="section-header">
+    <h2>📍 Places</h2>
+    <span class="line"></span>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('party')">🎉 Party</button>
+    <button class="tab-btn" onclick="showTab('chill')">😌 Chill</button>
+  </div>
+  <div class="tab-content visible" id="party-tab">
+    <div class="spots-card">
+      <a href="javascript:void(0)" onclick="showDetail('burgplatz')" class="spot-item featured"><span class="spot-icon">🎪</span><div class="spot-content"><div class="spot-name">Burgplatz</div><div class="spot-comment">Main stage · Big tent · The heart of it all</div></div><span class="spot-arrow">→</span></a>
+      <a href="javascript:void(0)" onclick="showDetail('uerige')" class="spot-item featured"><span class="spot-icon">🍺</span><div class="spot-content"><div class="spot-name">Uerige · Marktplatz</div><div class="spot-comment">Legendary brewery · Real Düsseldorf</div></div><span class="spot-arrow">→</span></a>
+      <a href="javascript:void(0)" onclick="showDetail('stursula')" class="spot-item featured"><span class="spot-icon">⛪</span><div class="spot-content"><div class="spot-name">St. Ursula · Ritterstraße</div><div class="spot-comment">Local favorite · Less tourists</div></div><span class="spot-arrow">→</span></a>
+      <a href="javascript:void(0)" onclick="showDetail('ratinger')" class="spot-item"><span class="spot-icon">🎸</span><div class="spot-content"><div class="spot-name">Ratinger Straße</div><div class="spot-comment">Locals' street · Alternative bars</div></div><span class="spot-arrow">→</span></a>
+      <a href="javascript:void(0)" onclick="showDetail('bolker')" class="spot-item"><span class="spot-icon">🌀</span><div class="spot-content"><div class="spot-name">Bolkerstraße</div><div class="spot-comment">Pure chaos · You will lose someone</div></div><span class="spot-arrow">→</span></a>
+      <a href="javascript:void(0)" onclick="showDetail('kabuffke')" class="spot-item"><span class="spot-icon">🥃</span><div class="spot-content"><div class="spot-name">Et Kabüffke</div><div class="spot-comment">Tiny legend since 1858 · Killepitsch!</div></div><span class="spot-arrow">→</span></a>
+    </div>
+  </div>
+  <div class="tab-content" id="chill-tab">
+    <div class="spots-card">
+      <a href="javascript:void(0)" onclick="showDetail('hofgarten')" class="spot-item"><span class="spot-icon">🌿</span><div class="spot-content"><div class="spot-name">Hofgarten</div><div class="spot-comment">Park with benches · Quiet escape</div></div><span class="spot-arrow">→</span></a>
+      <a href="javascript:void(0)" onclick="showDetail('rheinufer')" class="spot-item"><span class="spot-icon">🌊</span><div class="spot-content"><div class="spot-name">Rhein Riverbank</div><div class="spot-comment">Fresh air · Nice view · Clear your head</div></div><span class="spot-arrow">→</span></a>
+      <a href="javascript:void(0)" onclick="showDetail('matteo')" class="spot-item"><span class="spot-icon">🍕</span><div class="spot-content"><div class="spot-name">Pizzeria Matteo</div><div class="spot-comment">Open until 4-6am · Late night savior</div></div><span class="spot-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- German Phrase -->
+  <div class="phrase-card">
+    <p class="label">📋 Show this if you're lost</p>
+    <p class="german">"Ich bin verloren. Können Sie mir helfen, diese Adresse zu finden?"</p>
+    <p class="english">I'm lost. Can you help me find this address?</p>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-label">Florian's Place</p>
+    <p class="footer-address">Pilgerweg 32<br>40625 Düsseldorf</p>
+    <p class="footer-phone"><a href="tel:+491622714272">+49 162 271 4272</a></p>
+  </footer>
+</div>
+
+<!-- ==================== GYM PAGE ==================== -->
+<div class="page" id="page-gym">
+  <div class="gym-hero">
+    <div class="gym-hero-text">
+      <h2>FIT COSMO</h2>
+      <p>Düsseldorf Gerresheim</p>
+    </div>
+  </div>
+
+  <div class="gym-rating" style="margin-bottom:16px;">
+    ⭐ 4.6 <span style="color:var(--text-muted); font-weight:400; font-size:0.8rem;">· 176 reviews</span>
+  </div>
+
+  <div class="gym-card">
+    <h3>📍 Address</h3>
+    <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:12px;">
+      Diepenstraße 83, 40625 Düsseldorf<br>
+      <span style="font-size:0.75rem; color:var(--text-muted);">Located in COSMO SPORTS</span>
+    </p>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=Diepenstraße+83,+40625+Düsseldorf" class="detail-nav-btn" target="_blank">📍 Open in Google Maps</a>
+  </div>
+
+  <div class="gym-card">
+    <h3>🕐 Gym Hours</h3>
+    <div class="gym-hours-row"><span class="day">Mon – Fri</span><span class="time">07:00 – 22:30</span></div>
+    <div class="gym-hours-row"><span class="day">Sat, Sun & Holidays</span><span class="time">08:00 – 21:00</span></div>
+  </div>
+
+  <div class="gym-card">
+    <h3>🧖 Sauna Hours</h3>
+    <div class="gym-hours-row"><span class="day">Mon – Thu</span><span class="time">09:00 – 14:00</span></div>
+    <div class="gym-hours-row"><span class="day">Mon, Wed – Fri</span><span class="time">15:00 – 21:30</span></div>
+    <div class="gym-hours-row"><span class="day">Sat – Sun</span><span class="time">10:00 – 20:00</span></div>
+  </div>
+
+  <div class="info-box">
+    <ul>
+      <li><span class="dot"></span>Sauna included in membership</li>
+      <li><span class="dot"></span>Part of COSMO SPORTS GmbH</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== WEBCAM PAGE ==================== -->
+<div class="page" id="page-webcam">
+  <div class="section-header" style="margin-top:0;">
+    <h2>📹 Live Webcams</h2>
+    <span class="line"></span>
+  </div>
+
+  <a href="https://livespotting.tv/deutschland/duesseldorf/fxmwsxp6" target="_blank" class="webcam-card">
+    <div class="webcam-preview">
+      🏰
+      <span class="live-badge">● LIVE</span>
+    </div>
+    <div class="webcam-info">
+      <h4>Burgplatz · Schlossturm</h4>
+      <p>Live view of Burgplatz, St. Lambertus & Oberkasseler Brücke — tap to watch</p>
+    </div>
+  </a>
+
+  <a href="https://www.wetter.com/hd-live-webcams/deutschland/duesseldorf-burgplatz-am-rheinufer/663109f6de7ede301c043375/" target="_blank" class="webcam-card">
+    <div class="webcam-preview">
+      🌊
+      <span class="live-badge">● LIVE</span>
+    </div>
+    <div class="webcam-info">
+      <h4>Rheinufer · wetter.com</h4>
+      <p>HD Live Webcam at the Rhine waterfront — tap to watch</p>
+    </div>
+  </a>
+
+  <div class="info-box">
+    <ul>
+      <li><span class="dot"></span>Check crowd levels before heading out</li>
+      <li><span class="dot"></span>See the weather live at Burgplatz</li>
+      <li><span class="dot"></span>Webcams run 24/7</li>
+    </ul>
+  </div>
+</div>
+```
 
   </div>
 </div>
 
 <!-- ==================== DETAIL OVERLAY ==================== -->
+
 <div class="detail-overlay" id="detailOverlay">
   <div class="detail-header">
     <button class="detail-back" onclick="closeDetail()">← Back</button>
@@ -829,6 +786,7 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <script>
 // ==================== DATA ====================
 const toilets = [
@@ -864,10 +822,21 @@ const shops = [
   { name: "Fortuna Büdchen", lat: 51.22861, lng: 6.78751, type: "kiosk", area: "Altstadt", desc: "Cult kiosk · Fortuna fans HQ" },
 ];
 
+// ╔══════════════════════════════════════════════════════════════╗
+// ║  HOW TO ADD PHOTOS TO PLACES:                               ║
+// ║  Find the place below, paste your image URL or base64       ║
+// ║  between the quotes "" after "image:".                      ║
+// ║                                                              ║
+// ║  Option A (URL):    image: "https://example.com/pic.jpg",  ║
+// ║  Option B (Base64): image: "data:image/jpeg;base64,/9j/…", ║
+// ║                                                              ║
+// ║  Leave "" empty = emoji placeholder shown instead.           ║
+// ╚══════════════════════════════════════════════════════════════╝
 const placeDetails = {
   burgplatz: {
     title: "Burgplatz",
     icon: "🎪",
+    image: "",  // ← PASTE BURGPLATZ PHOTO HERE
     desc: "The main carnival stage area. Biggest tent, biggest crowd, biggest energy. This is where Düsseldorf Karneval happens. The Schlossturm overlooks the Rhine and the party.",
     address: "Burgplatz, 40213 Düsseldorf",
     tips: "Get there early for a good spot. Watch your pockets. The Rheintreppe is perfect for a breather.",
@@ -877,6 +846,7 @@ const placeDetails = {
   uerige: {
     title: "Uerige",
     icon: "🍺",
+    image: "",  // ← PASTE UERIGE PHOTO HERE
     desc: "The most legendary Altbier brewery in Düsseldorf. Established in 1862. The Köbes (waiter) will just keep putting fresh glasses on your table. Say 'Deckel drauf' to stop.",
     address: "Berger Str. 1, 40213 Düsseldorf",
     tips: "Order 'Ein Alt, bitte.' The Köbes might seem rude — that's tradition, not personal. Stand-up spots in the back are the real deal.",
@@ -885,6 +855,7 @@ const placeDetails = {
   stursula: {
     title: "St. Ursula · Ritterstraße",
     icon: "⛪",
+    image: "",  // ← PASTE ST. URSULA PHOTO HERE
     desc: "Where the locals celebrate. Less touristy than Bolkerstraße, more authentic. The area around St. Ursula church transforms during carnival — outdoor stages and smaller tents.",
     address: "Ritterstraße, 40213 Düsseldorf",
     tips: "This is the spot if you want to feel actual Düsseldorf Karneval instead of just tourist chaos. Nearby kiosks are cheaper than bars.",
@@ -893,6 +864,7 @@ const placeDetails = {
   ratinger: {
     title: "Ratinger Straße",
     icon: "🎸",
+    image: "",  // ← PASTE RATINGER STRAßE PHOTO HERE
     desc: "The alternative heart of the Altstadt. Less mainstream, more rock'n'roll. This is where Düsseldorfers hang — not tourists. Legendary punk and music bar scene since the 80s.",
     address: "Ratinger Straße, 40213 Düsseldorf",
     tips: "Check out the bars along the street — each has its own vibe. It gets busy but never as insane as Bolkerstraße. Good mix of ages.",
@@ -901,7 +873,8 @@ const placeDetails = {
   bolker: {
     title: "Bolkerstraße",
     icon: "🌀",
-    desc: "Pure, concentrated carnival chaos. Wall-to-wall people, shoulder-to-shoulder drinking. Heinrich Heine was born here — he'd barely recognize it during Karneval. The 'longest bar in the world' lives up to its name.",
+    image: "",  // ← PASTE BOLKERSTRAßE PHOTO HERE
+    desc: "Pure, concentrated carnival chaos. Wall-to-wall people, shoulder-to-shoulder drinking. Heinrich Heine was born here — he'd barely recognize it during Karneval.",
     address: "Bolkerstraße, 40213 Düsseldorf",
     tips: "You WILL lose someone here. Set a meeting point before going in. Keep your phone charged. Don't wear anything you love — it will get beer on it.",
     navUrl: "https://www.google.com/maps/search/?api=1&query=Bolkerstraße+Düsseldorf"
@@ -909,42 +882,47 @@ const placeDetails = {
   kabuffke: {
     title: "Et Kabüffke",
     icon: "🥃",
-    desc: "A tiny legendary kiosk bar since 1858. Famous for Killepitsch — a deep red herbal liqueur that is THE drink of Düsseldorf. It's made from 98 fruits, berries and herbs.",
+    image: "",  // ← PASTE ET KABÜFFKE PHOTO HERE
+    desc: "A tiny legendary kiosk bar since 1858. Famous for Killepitsch — a deep red herbal liqueur that is THE drink of Düsseldorf. Made from 98 fruits, berries and herbs.",
     address: "Flinger Str. 1, 40213 Düsseldorf",
-    tips: "Order a Killepitsch. It's sweet, strong, and dangerously easy to drink. They also sell bottles to take home — great souvenir. Queue can get long during carnival.",
+    tips: "Order a Killepitsch. It's sweet, strong, and dangerously easy to drink. They also sell bottles to take home — great souvenir.",
     navUrl: "https://www.google.com/maps/search/?api=1&query=Et+Kabüffke+Flinger+Straße+Düsseldorf"
   },
   hofgarten: {
     title: "Hofgarten",
     icon: "🌿",
-    desc: "Düsseldorf's oldest and most beautiful park. Right next to the Altstadt but a completely different world — quiet paths, old trees, benches by the pond. Perfect when you need to decompress.",
+    image: "",  // ← PASTE HOFGARTEN PHOTO HERE
+    desc: "Düsseldorf's oldest and most beautiful park. Right next to the Altstadt but a completely different world — quiet paths, old trees, benches by the pond.",
     address: "Hofgarten, 40479 Düsseldorf",
-    tips: "Sit on the benches near the Jägerhof museum entrance for the most peaceful spot. There are also public toilets nearby at Schadowstraße.",
+    tips: "Sit on the benches near the Jägerhof museum entrance for the most peaceful spot. Public toilets nearby at Schadowstraße.",
     navUrl: "https://www.google.com/maps/search/?api=1&query=Hofgarten+Schadowstraße+Düsseldorf"
   },
   rheinufer: {
     title: "Rhein Riverbank",
     icon: "🌊",
-    desc: "The Rhine promenade stretches along the water. Fresh air, wide views, and the sound of river barges. During carnival, people sit on the Rheintreppe steps with drinks and watch the chaos from a safe distance.",
+    image: "",  // ← PASTE RHEINUFER PHOTO HERE
+    desc: "The Rhine promenade stretches along the water. Fresh air, wide views, and river barges. During carnival, people sit on the Rheintreppe steps with drinks.",
     address: "Rheinuferpromenade, 40213 Düsseldorf",
-    tips: "The steps at Burgplatz are the best spot. Bring a drink from a Büdchen — it's way cheaper than any bar. Great for clearing your head after too much Altbier.",
+    tips: "The steps at Burgplatz are the best spot. Bring a drink from a Büdchen — way cheaper than any bar.",
     navUrl: "https://www.google.com/maps/search/?api=1&query=Rheinufer+Düsseldorf+Altstadt"
   },
   matteo: {
     title: "Pizzeria Matteo",
     icon: "🍕",
-    desc: "Your late-night savior. Open until 4-6am during carnival weekends. Authentic Italian pizza that tastes even better at 3am when you desperately need something solid. Always packed but worth the wait.",
+    image: "",  // ← PASTE PIZZERIA MATTEO PHOTO HERE
+    desc: "Your late-night savior. Open until 4-6am during carnival weekends. Authentic Italian pizza that tastes even better at 3am.",
     address: "Hunsrückenstraße 34, 40213 Düsseldorf",
-    tips: "The Margherita is perfect. Don't overthink it. Cash is faster. If the queue is too long, try the Döner places on Bolkerstraße as backup.",
+    tips: "The Margherita is perfect. Cash is faster. If the queue is too long, try the Döner places on Bolkerstraße as backup.",
     navUrl: "https://www.google.com/maps/search/?api=1&query=Pizzeria+Matteo+Hunsrückenstraße+Düsseldorf"
   }
 };
 
 // ==================== STATE ====================
 let userLat = null, userLng = null;
-let homeMap = null, exploreMap = null;
-let userMarkerHome = null, userMarkerExplore = null;
+let homeMap = null;
+let userMarkerHome = null;
 let mapLoaded = false;
+let allMapMarkers = [];
 
 // ==================== THEME ====================
 function toggleTheme() {
@@ -1003,7 +981,6 @@ function navigateTo(page) {
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   event.currentTarget?.classList.add('active');
   window.scrollTo(0, 0);
-  if (page === 'explore' && !exploreMap) setTimeout(initExploreMap, 100);
 }
 
 // ==================== CONTACTS ====================
@@ -1016,24 +993,44 @@ function toggleContacts() {
 
 // ==================== TABS ====================
 function showTab(tab) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('visible'));
+  const homeTabs = document.querySelectorAll('#page-home .tabs')[1];
+  if (!homeTabs) return;
+  const btns = homeTabs.querySelectorAll('.tab-btn');
+  btns.forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('#party-tab, #chill-tab').forEach(c => c.classList.remove('visible'));
   if (tab === 'party') {
-    document.querySelectorAll('.tab-btn')[0].classList.add('active');
+    btns[0].classList.add('active');
     document.getElementById('party-tab').classList.add('visible');
   } else {
-    document.querySelectorAll('.tab-btn')[1].classList.add('active');
+    btns[1].classList.add('active');
     document.getElementById('chill-tab').classList.add('visible');
   }
 }
-function showAreaTab(area) {
-  const tabs = document.querySelectorAll('#page-explore .tab-btn');
-  const contents = ['altstadt-area', 'home-area'];
-  tabs.forEach(t => t.classList.remove('active'));
-  contents.forEach(c => document.getElementById(c).classList.remove('visible'));
-  const idx = { altstadt: 0, home: 1 }[area];
-  tabs[idx].classList.add('active');
-  document.getElementById(area + '-area').classList.add('visible');
+
+// ==================== SHARE LOCATION ====================
+function shareLocation(e) {
+  e.preventDefault();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(pos => {
+      const url = `https://www.google.com/maps?q=${pos.coords.latitude},${pos.coords.longitude}`;
+      if (navigator.share) {
+        navigator.share({ title: 'My Location', text: 'Here is my location:', url: url });
+      } else {
+        window.open(`sms:?body=Hey, here is my location: ${encodeURIComponent(url)}`);
+      }
+    }, () => {
+      alert('Could not get your location. Please enable GPS.');
+    });
+  }
+}
+function shareLocationWA(e) {
+  e.preventDefault();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(pos => {
+      const url = `https://www.google.com/maps?q=${pos.coords.latitude},${pos.coords.longitude}`;
+      window.open(`https://wa.me/?text=Hey, here is my location: ${encodeURIComponent(url)}`);
+    }, () => { alert('Could not get your location.'); });
+  }
 }
 
 // ==================== LOCATION TRACKING ====================
@@ -1047,19 +1044,16 @@ function trackLocation() {
   }
 }
 function updateUserMarkers() {
-  if (!userLat) return;
-  [{ map: homeMap, marker: 'userMarkerHome' }, { map: exploreMap, marker: 'userMarkerExplore' }].forEach(m => {
-    if (!m.map) return;
-    if (window[m.marker]) { window[m.marker].setLatLng([userLat, userLng]); }
-    else {
-      window[m.marker] = L.circleMarker([userLat, userLng], {
-        radius: 8, fillColor: '#4285f4', color: '#fff', weight: 3, fillOpacity: 1
-      }).addTo(m.map).bindPopup("📍 You");
-    }
-  });
+  if (!userLat || !homeMap) return;
+  if (userMarkerHome) { userMarkerHome.setLatLng([userLat, userLng]); }
+  else {
+    userMarkerHome = L.circleMarker([userLat, userLng], {
+      radius: 8, fillColor: '#4285f4', color: '#fff', weight: 3, fillOpacity: 1
+    }).addTo(homeMap).bindPopup("📍 You");
+  }
 }
 
-// ==================== HOME MAP ====================
+// ==================== UNIFIED MAP ====================
 function initHomeMap() {
   if (typeof L === 'undefined') { showFallbackMap(); return; }
   try {
@@ -1068,9 +1062,20 @@ function initHomeMap() {
     const tileUrl = isDark ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png' : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
     L.tileLayer(tileUrl, { maxZoom: 19 }).addTo(homeMap);
     L.control.zoom({ position: 'bottomright' }).addTo(homeMap);
+
+    // Toilets
     toilets.forEach(t => {
-      L.circleMarker([t.lat, t.lng], { radius: 10, fillColor: '#b8956c', color: '#fff', weight: 3, fillOpacity: 1 }).addTo(homeMap)
-        .bindPopup(`<div class="popup-title">🚽 ${t.name}</div><div class="popup-type">${t.type}</div><a href="https://www.google.com/maps/dir/?api=1&destination=${t.lat},${t.lng}&travelmode=walking" class="popup-btn" target="_blank">Navigate →</a>`);
+      const m = L.circleMarker([t.lat, t.lng], { radius: 10, fillColor: '#b8956c', color: '#fff', weight: 3, fillOpacity: 1 }).addTo(homeMap)
+        .bindPopup(`<div class="popup-title">🚽 ${t.name}</div><div class="popup-type">${t.type}</div><a href="https://www.google.com/maps/dir/?api=1&destination=${t.lat},${t.lng}&travelmode=walking" class="popup-btn" target="_blank">Google Maps →</a>`);
+      allMapMarkers.push({ marker: m, type: 'toilet' });
+    });
+    // Shops & Kiosks
+    shops.forEach(s => {
+      const color = s.type === 'supermarket' ? '#5b9bd5' : '#e67e22';
+      const icon = s.type === 'supermarket' ? '🛒' : '🏪';
+      const m = L.circleMarker([s.lat, s.lng], { radius: 9, fillColor: color, color: '#fff', weight: 2, fillOpacity: 1 }).addTo(homeMap)
+        .bindPopup(`<div class="popup-title">${icon} ${s.name}</div><div class="popup-type">${s.desc}</div><a href="https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}&travelmode=walking" class="popup-btn" target="_blank">Google Maps →</a>`);
+      allMapMarkers.push({ marker: m, type: s.type });
     });
     mapLoaded = true;
   } catch (e) { showFallbackMap(); }
@@ -1081,44 +1086,22 @@ function showFallbackMap() {
   document.getElementById('mapStatus').innerHTML = '📴 Offline';
 }
 
-// ==================== EXPLORE MAP ====================
-function initExploreMap() {
-  if (typeof L === 'undefined' || exploreMap) return;
-  try {
-    exploreMap = L.map('explore-map', { zoomControl: false, attributionControl: false }).setView([51.2270, 6.7740], 14);
-    const isDark = document.body.getAttribute('data-theme') === 'dark';
-    const tileUrl = isDark ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png' : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
-    L.tileLayer(tileUrl, { maxZoom: 19 }).addTo(exploreMap);
-    L.control.zoom({ position: 'bottomright' }).addTo(exploreMap);
-
-    // Toilets
-    toilets.forEach(t => {
-      L.circleMarker([t.lat, t.lng], { radius: 8, fillColor: '#b8956c', color: '#fff', weight: 2, fillOpacity: 1 }).addTo(exploreMap)
-        .bindPopup(`<div class="popup-title">🚽 ${t.name}</div><div class="popup-type">${t.type}</div>`);
-    });
-    // Shops
-    shops.forEach(s => {
-      const color = s.type === 'supermarket' ? '#5b9bd5' : '#e67e22';
-      const icon = s.type === 'supermarket' ? '🛒' : '🏪';
-      L.circleMarker([s.lat, s.lng], { radius: 9, fillColor: color, color: '#fff', weight: 2, fillOpacity: 1 }).addTo(exploreMap)
-        .bindPopup(`<div class="popup-title">${icon} ${s.name}</div><div class="popup-type">${s.desc}</div><a href="https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}&travelmode=walking" class="popup-btn" target="_blank">Navigate →</a>`);
-    });
-
-    // Build shop list
-    const listEl = document.getElementById('shopList');
-    shops.forEach(s => {
-      const icon = s.type === 'supermarket' ? '🛒' : '🏪';
-      listEl.innerHTML += `<a href="https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}&travelmode=walking" target="_blank" class="shop-item"><div><div class="shop-name">${icon} ${s.name}</div><div class="shop-type">${s.desc} · ${s.area}</div></div><span class="shop-arrow">→</span></a>`;
-    });
-
-    if (userLat) updateUserMarkers();
-  } catch(e) { console.error(e); }
+// ==================== MAP FILTER ====================
+function filterMap(type) {
+  const btns = document.querySelectorAll('#mapFilterTabs .tab-btn');
+  btns.forEach(b => b.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  allMapMarkers.forEach(item => {
+    if (type === 'all') { item.marker.addTo(homeMap); }
+    else if (item.type === type) { item.marker.addTo(homeMap); }
+    else { homeMap.removeLayer(item.marker); }
+  });
 }
 
 // ==================== NAVIGATE TO NEAREST ====================
 function navigateToNearest() {
   if (!userLat || !userLng) {
-    window.open('https://www.google.com/maps/dir/?api=1&destination=51.2277,6.7735&travelmode=walking', '_blank');
+    window.open('https://www.google.com/maps/dir/?api=1&destination=51.22743,6.77196&travelmode=walking', '_blank');
     return;
   }
   let nearest = null, minDist = Infinity;
@@ -1171,7 +1154,7 @@ function showDetail(key) {
       <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.6;">${d.tips}</p>
     </div>
     ${webcamHtml}
-    <a href="${d.navUrl}" target="_blank" class="detail-nav-btn">🧭 Navigate There</a>
+    <a href="${d.navUrl}" target="_blank" class="detail-nav-btn">📍 Open in Google Maps</a>
   `;
   document.getElementById('detailOverlay').classList.add('visible');
 }
@@ -1195,10 +1178,11 @@ function getWeatherEmoji(code) {
 async function loadWeather() {
   const API_KEY = '0f8f9d8fa9d701a21fdf9716702854fa';
   try {
-    // Current weather
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Düsseldorf&appid=${API_KEY}&units=metric&lang=en`);
+    // Use city ID 2934246 for Düsseldorf (avoids umlaut encoding issues)
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=2934246&appid=${API_KEY}&units=metric&lang=en`);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
-    if (data.cod !== 200) throw new Error('Weather API error');
+    if (data.cod !== 200) throw new Error('API error');
 
     document.getElementById('weatherIcon').textContent = getWeatherEmoji(data.weather[0].id);
     document.getElementById('weatherTemp').textContent = Math.round(data.main.temp) + '°C';
@@ -1207,7 +1191,8 @@ async function loadWeather() {
     document.getElementById('weatherHumidity').textContent = '💧 ' + data.main.humidity + '%';
 
     // Forecast (hourly)
-    const fRes = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Düsseldorf&appid=${API_KEY}&units=metric&lang=en&cnt=8`);
+    const fRes = await fetch(`https://api.openweathermap.org/data/2.5/forecast?id=2934246&appid=${API_KEY}&units=metric&lang=en&cnt=8`);
+    if (!fRes.ok) throw new Error('Forecast error');
     const fData = await fRes.json();
     const hourlyEl = document.getElementById('weatherHourly');
     hourlyEl.innerHTML = '';
@@ -1220,7 +1205,8 @@ async function loadWeather() {
     document.getElementById('weatherLoading').style.display = 'none';
     document.getElementById('weatherContent').style.display = 'block';
   } catch (e) {
-    document.getElementById('weatherLoading').textContent = '☁️ Weather unavailable';
+    console.error('Weather error:', e);
+    document.getElementById('weatherLoading').innerHTML = '☁️ Weather loading... <br><span style="font-size:0.65rem;color:var(--text-muted)">Check connection</span>';
   }
 }
 
@@ -1228,5 +1214,6 @@ async function loadWeather() {
 window.addEventListener('offline', showFallbackMap);
 loadTheme();
 </script>
+
 </body>
 </html>
