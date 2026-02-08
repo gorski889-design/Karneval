@@ -70,11 +70,11 @@
 }
 .splash-skyline {
   width: 100%; max-width: 360px; height: 80px; margin: 0 auto 48px;
-  opacity: 0.15;
+  opacity: 0.15; display: flex; align-items: center; justify-content: center;
 }
-.splash-skyline svg { width: 100%; height: 100%; }
+.splash-skyline img { width: 100%; height: 100%; object-fit: contain; }
 [data-theme="dark"] .splash-skyline { opacity: 0.12; }
-[data-theme="dark"] .splash-skyline svg path { fill: #ccc; }
+[data-theme="dark"] .splash-skyline img { filter: invert(1); }
 .enter-btn {
   display: inline-block; padding: 18px 48px; background: var(--accent);
   border: none; border-radius: 50px; color: white;
@@ -149,7 +149,7 @@
 /* Header */
 .header {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 24px 0 20px;
+  padding: 14px 0 12px;
 }
 .header-left { display: flex; align-items: center; gap: 14px; }
 .header h1 {
@@ -170,7 +170,7 @@
   border-radius: 16px; margin-bottom: 16px; box-shadow: var(--shadow-sm);
   transition: background 0.3s ease; overflow: hidden;
 }
-.weather-icon { font-size: 1.8rem; }
+.weather-icon { font-size: 1.8rem; min-width: 36px; display: flex; align-items: center; }
 .weather-info { flex: 1; }
 .weather-temp { font-size: 1.2rem; font-weight: 600; }
 .weather-desc { font-size: 0.72rem; color: var(--text-muted); text-transform: capitalize; }
@@ -487,10 +487,9 @@ details summary:hover { color: var(--text-secondary); }
   <div class="splash-content">
     <h1 class="splash-title">DÜSSELDORF</h1>
     <p class="splash-subtitle">Carnival Survival Guide</p>
+    <!-- ← PASTE DÜSSELDORF SKYLINE IMAGE BELOW (replace src="") -->
     <div class="splash-skyline">
-      <svg viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 120 L0 95 L20 95 L20 70 L25 70 L25 60 L30 60 L30 70 L35 70 L35 95 L55 95 L55 80 L60 80 L60 75 L65 75 L65 55 L70 50 L75 55 L75 75 L80 75 L80 80 L85 80 L85 95 L100 95 L100 65 L105 65 L105 50 L110 45 L115 50 L115 65 L120 65 L120 95 L140 95 L140 85 L145 85 L145 40 L148 20 L151 40 L155 40 L155 85 L160 85 L160 95 L180 95 L180 75 L185 75 L190 70 L195 65 L200 60 L205 55 L208 35 L210 15 L212 35 L215 55 L220 60 L225 65 L230 70 L235 75 L240 75 L240 95 L260 95 L260 80 L265 80 L265 72 L270 72 L270 60 L275 55 L280 52 L285 55 L285 60 L290 60 L290 72 L295 72 L295 80 L300 80 L300 95 L320 95 L320 70 L325 70 L325 55 L330 50 L335 45 L340 42 L345 45 L350 50 L355 55 L355 70 L360 70 L360 95 L380 95 L380 85 L385 85 L385 60 L390 55 L395 50 L400 48 L405 50 L410 55 L415 60 L415 85 L420 85 L420 95 L440 95 L440 75 L445 75 L450 68 L455 62 L458 25 L460 10 L462 25 L465 62 L470 68 L475 75 L480 75 L480 95 L500 95 L500 80 L505 80 L505 65 L510 60 L515 58 L520 60 L520 65 L525 65 L525 80 L530 80 L530 95 L550 95 L550 82 L555 82 L555 70 L560 65 L565 62 L570 65 L570 70 L575 70 L575 82 L580 82 L580 95 L600 95 L600 85 L605 85 L605 75 L610 72 L615 70 L620 72 L620 75 L625 75 L625 85 L630 85 L630 95 L660 95 L660 80 L665 80 L665 70 L670 65 L675 62 L680 65 L680 70 L685 70 L685 80 L690 80 L690 95 L720 95 L720 85 L730 85 L730 78 L740 78 L740 85 L750 85 L750 95 L800 95 L800 120 Z" fill="#1a1a1a"/>
-      </svg>
+      <img src="" alt="Düsseldorf Skyline" onerror="this.parentElement.style.display='none';">
     </div>
     <button class="enter-btn" onclick="enterApp()">Enter</button>
     <p class="splash-hint">Your emergency guide for carnival nights</p>
@@ -561,7 +560,7 @@ details summary:hover { color: var(--text-secondary); }
   <!-- Main CTA -->
   <section class="main-cta">
     <a href="uber://?action=setPickup&pickup=my_location&dropoff[latitude]=51.22489&dropoff[longitude]=6.85965&dropoff[nickname]=Home" class="home-btn">
-      <span class="icon">🚗</span>
+      <span class="icon">🏠</span>
       Take Me Home (Uber)
       <span class="sublabel">Opens Uber · One tap</span>
     </a>
@@ -571,14 +570,6 @@ details summary:hover { color: var(--text-secondary); }
       </a>
       <a href="tel:+491622714272" class="sec-btn">
         <span class="icon">📞</span> Call Florian
-      </a>
-    </div>
-    <div class="secondary-row" style="margin-top:8px;">
-      <a href="sms:?body=Hey%2C%20here%20is%20my%20location%3A%20" onclick="shareLocation(event)" class="sec-btn" id="shareLocBtn">
-        <span class="icon">📡</span> Share My Location
-      </a>
-      <a href="https://wa.me/?text=Hey%2C%20here%20is%20my%20location%3A%20" onclick="shareLocationWA(event)" class="sec-btn">
-        <span class="icon">💬</span> Share via WhatsApp
       </a>
     </div>
     <button class="contacts-toggle" onclick="toggleContacts()">
@@ -591,6 +582,9 @@ details summary:hover { color: var(--text-secondary); }
       <a href="tel:+447483851859" class="contact-item"><div><div class="name">Joe</div><div class="phone">+44 7483 851859</div></div><span class="call-icon">📞</span></a>
       <a href="tel:+447436065758" class="contact-item"><div><div class="name">James</div><div class="phone">+44 7436 065758</div></div><span class="call-icon">📞</span></a>
     </div>
+    <button class="contacts-toggle" onclick="shareLocation(event)" style="margin-top:8px;">
+      <span>📡</span> Share My Location
+    </button>
   </section>
 
   <!-- Explore Map Section -->
@@ -1023,15 +1017,7 @@ function shareLocation(e) {
     });
   }
 }
-function shareLocationWA(e) {
-  e.preventDefault();
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(pos => {
-      const url = `https://www.google.com/maps?q=${pos.coords.latitude},${pos.coords.longitude}`;
-      window.open(`https://wa.me/?text=Hey, here is my location: ${encodeURIComponent(url)}`);
-    }, () => { alert('Could not get your location.'); });
-  }
-}
+// (WhatsApp share removed)
 
 // ==================== LOCATION TRACKING ====================
 function trackLocation() {
@@ -1178,35 +1164,39 @@ function getWeatherEmoji(code) {
 async function loadWeather() {
   const API_KEY = '0f8f9d8fa9d701a21fdf9716702854fa';
   try {
-    // Use city ID 2934246 for Düsseldorf (avoids umlaut encoding issues)
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=2934246&appid=${API_KEY}&units=metric&lang=en`);
+    const res = await fetch(`http://api.weatherstack.com/current?access_key=${API_KEY}&query=Dusseldorf&units=m`);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
-    if (data.cod !== 200) throw new Error('API error');
+    if (data.success === false) throw new Error(data.error?.info || 'API error');
+    if (!data.current) throw new Error('No current data');
 
-    document.getElementById('weatherIcon').textContent = getWeatherEmoji(data.weather[0].id);
-    document.getElementById('weatherTemp').textContent = Math.round(data.main.temp) + '°C';
-    document.getElementById('weatherDesc').textContent = data.weather[0].description;
-    document.getElementById('weatherWind').textContent = '💨 ' + Math.round(data.wind.speed * 3.6) + ' km/h';
-    document.getElementById('weatherHumidity').textContent = '💧 ' + data.main.humidity + '%';
+    const c = data.current;
+    // Use weather icon from API
+    const iconUrl = c.weather_icons?.[0] || '';
+    document.getElementById('weatherIcon').innerHTML = iconUrl
+      ? `<img src="${iconUrl}" alt="weather" style="width:36px;height:36px;vertical-align:middle;">`
+      : getWeatherEmoji(c.weather_code);
+    document.getElementById('weatherTemp').textContent = Math.round(c.temperature) + '°C';
+    document.getElementById('weatherDesc').textContent = c.weather_descriptions?.[0] || '';
+    document.getElementById('weatherWind').textContent = '💨 ' + c.wind_speed + ' km/h';
+    document.getElementById('weatherHumidity').textContent = '💧 ' + c.humidity + '%';
 
-    // Forecast (hourly)
-    const fRes = await fetch(`https://api.openweathermap.org/data/2.5/forecast?id=2934246&appid=${API_KEY}&units=metric&lang=en&cnt=8`);
-    if (!fRes.ok) throw new Error('Forecast error');
-    const fData = await fRes.json();
+    // No hourly forecast on free plan — show feels like, UV, visibility instead
     const hourlyEl = document.getElementById('weatherHourly');
-    hourlyEl.innerHTML = '';
-    fData.list.forEach(h => {
-      const time = new Date(h.dt * 1000);
-      const hour = time.getHours().toString().padStart(2, '0') + ':00';
-      hourlyEl.innerHTML += `<div class="weather-hour"><span class="time">${hour}</span><span class="icon">${getWeatherEmoji(h.weather[0].id)}</span><span class="temp">${Math.round(h.main.temp)}°</span></div>`;
-    });
+    hourlyEl.innerHTML = `
+      <div class="weather-hour"><span class="time">Feels</span><span class="icon">🌡️</span><span class="temp">${c.feelslike}°</span></div>
+      <div class="weather-hour"><span class="time">UV</span><span class="icon">☀️</span><span class="temp">${c.uv_index}</span></div>
+      <div class="weather-hour"><span class="time">Cloud</span><span class="icon">☁️</span><span class="temp">${c.cloudcover}%</span></div>
+      <div class="weather-hour"><span class="time">Precip</span><span class="icon">🌧️</span><span class="temp">${c.precip}mm</span></div>
+      <div class="weather-hour"><span class="time">Vis</span><span class="icon">👁️</span><span class="temp">${c.visibility}km</span></div>
+      <div class="weather-hour"><span class="time">Pres</span><span class="icon">📊</span><span class="temp">${c.pressure}mb</span></div>
+    `;
 
     document.getElementById('weatherLoading').style.display = 'none';
     document.getElementById('weatherContent').style.display = 'block';
   } catch (e) {
     console.error('Weather error:', e);
-    document.getElementById('weatherLoading').innerHTML = '☁️ Weather loading... <br><span style="font-size:0.65rem;color:var(--text-muted)">Check connection</span>';
+    document.getElementById('weatherLoading').innerHTML = '☁️ Weather unavailable<br><span style="font-size:0.65rem;color:var(--text-muted)">Check connection</span>';
   }
 }
 
