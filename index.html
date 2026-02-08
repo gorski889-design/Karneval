@@ -70,11 +70,10 @@
 }
 .splash-skyline {
   width: 100%; max-width: 360px; height: 80px; margin: 0 auto 48px;
-  opacity: 0.15; display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
-.splash-skyline img { width: 100%; height: 100%; object-fit: contain; }
-[data-theme="dark"] .splash-skyline { opacity: 0.12; }
-[data-theme="dark"] .splash-skyline img { filter: invert(1); }
+.splash-skyline img { width: 100%; height: 100%; object-fit: contain; opacity: 0.15; }
+[data-theme="dark"] .splash-skyline img { filter: invert(1); opacity: 0.12; }
 .enter-btn {
   display: inline-block; padding: 18px 48px; background: var(--accent);
   border: none; border-radius: 50px; color: white;
@@ -487,9 +486,9 @@ details summary:hover { color: var(--text-secondary); }
   <div class="splash-content">
     <h1 class="splash-title">DÜSSELDORF</h1>
     <p class="splash-subtitle">Carnival Survival Guide</p>
-    <!-- ← PASTE DÜSSELDORF SKYLINE IMAGE BELOW (replace src="") -->
+    <!-- ← PASTE DÜSSELDORF SKYLINE IMAGE BELOW (replace the src="") -->
     <div class="splash-skyline">
-      <img src="" alt="Düsseldorf Skyline" onerror="this.parentElement.style.display='none';">
+      <img src="" alt="Düsseldorf Skyline" onerror="this.style.display='none';">
     </div>
     <button class="enter-btn" onclick="enterApp()">Enter</button>
     <p class="splash-hint">Your emergency guide for carnival nights</p>
@@ -1163,15 +1162,27 @@ function getWeatherEmoji(code) {
 
 async function loadWeather() {
   const API_KEY = '0f8f9d8fa9d701a21fdf9716702854fa';
+  // Try HTTPS first (needed for GitHub Pages), fall back to HTTP
+  const urls = [
+    `https://api.weatherstack.com/current?access_key=${API_KEY}&query=Dusseldorf&units=m`,
+    `http://api.weatherstack.com/current?access_key=${API_KEY}&query=Dusseldorf&units=m`
+  ];
+  let data = null;
+  for (const url of urls) {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) continue;
+      data = await res.json();
+      if (data.success === false) { data = null; continue; }
+      if (data.current) break;
+    } catch (e) { continue; }
+  }
+  if (!data || !data.current) {
+    document.getElementById('weatherLoading').innerHTML = '☁️ Weather unavailable';
+    return;
+  }
   try {
-    const res = await fetch(`http://api.weatherstack.com/current?access_key=${API_KEY}&query=Dusseldorf&units=m`);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-    if (data.success === false) throw new Error(data.error?.info || 'API error');
-    if (!data.current) throw new Error('No current data');
-
     const c = data.current;
-    // Use weather icon from API
     const iconUrl = c.weather_icons?.[0] || '';
     document.getElementById('weatherIcon').innerHTML = iconUrl
       ? `<img src="${iconUrl}" alt="weather" style="width:36px;height:36px;vertical-align:middle;">`
@@ -1180,8 +1191,6 @@ async function loadWeather() {
     document.getElementById('weatherDesc').textContent = c.weather_descriptions?.[0] || '';
     document.getElementById('weatherWind').textContent = '💨 ' + c.wind_speed + ' km/h';
     document.getElementById('weatherHumidity').textContent = '💧 ' + c.humidity + '%';
-
-    // No hourly forecast on free plan — show feels like, UV, visibility instead
     const hourlyEl = document.getElementById('weatherHourly');
     hourlyEl.innerHTML = `
       <div class="weather-hour"><span class="time">Feels</span><span class="icon">🌡️</span><span class="temp">${c.feelslike}°</span></div>
@@ -1191,12 +1200,10 @@ async function loadWeather() {
       <div class="weather-hour"><span class="time">Vis</span><span class="icon">👁️</span><span class="temp">${c.visibility}km</span></div>
       <div class="weather-hour"><span class="time">Pres</span><span class="icon">📊</span><span class="temp">${c.pressure}mb</span></div>
     `;
-
     document.getElementById('weatherLoading').style.display = 'none';
     document.getElementById('weatherContent').style.display = 'block';
   } catch (e) {
-    console.error('Weather error:', e);
-    document.getElementById('weatherLoading').innerHTML = '☁️ Weather unavailable<br><span style="font-size:0.65rem;color:var(--text-muted)">Check connection</span>';
+    document.getElementById('weatherLoading').innerHTML = '☁️ Weather unavailable';
   }
 }
 
